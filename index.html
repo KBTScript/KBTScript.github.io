@@ -10,7 +10,7 @@
 			<h1>Интерактивный помошник по КБТ</h1>
 		</header>
 		<main>
-			<section id='wrap'>
+			<section>
 				<div class='blocks' id='greeting__territory'>
 					<h2>Выберите ваш Дивизион</h2>
 					<select id='greeting__territory-options' size = '11'>
@@ -28,11 +28,11 @@
 					</select>
 				</div>
 				<div class='blocks hide' id='greeting__appeal'>
-					<button id='greeting__appeal-recall' class='alone-button'>Согласование визита мастера повторно</button>
-					<button id='greeting__appeal-firstcall' class='alone-button'>Обработка первичного обращения</button>
-					<button id='greeting__appeal-timetransfer' class='alone-button'>Перенос времени визита мастера(мастер задерживается)</button>
+					<button class='greeting__button' id='greeting__appeal-recall' class='alone-button'>Согласование визита мастера повторно</button>
+					<button class='greeting__button' id='greeting__appeal-firstcall' class='alone-button'>Обработка первичного обращения</button>
+					<button class='greeting__button' id='greeting__appeal-timetransfer' class='alone-button'>Перенос времени визита мастера<br>(мастер задерживается)</button>
 				</div>
-				<div class='blocks hide' id='general-checking__greeting'>
+				<div class='blocks hide notgreeting' id='general-checking__greeting'>
 					<p>
 						Добрый день! Меня зовут (называем свое имя), компания DNS!<br>
 						(называем ФИО клиента) вы оставляли заявку на выездной ремонт<br>(называем фирму и название техники) все верно?
@@ -42,52 +42,57 @@
 						<button id='general-checking__greeting-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide' id='general-checking__goodbye-mistake'>
+				<div class='blocks hide notgreeting' id='general-checking__goodbye-mistake'>
 					<p>
 						Прошу прощение за беспокойство, наверное, произошла ошибка в наборе номера. До свидание!
 					</p>
 				</div>
-				<div class='blocks hide' id='recall__clarification'>
+				<div class='blocks hide notgreeting' id='recall__clarification'>
 					<p>
 						Я вас понял(ла). Давайте сверим данные,скажите, пожалуйста,<br> 
 						полное ФИО и адрес проживания.
 					</p>
+					<div>
+						<button id='recall__clarification-continue' class='alone-button''>Далее</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='recall__mastertime'>
 					<p>
 						Большое спасибо! Подскажите, будет удобно если мастер приедет к<br>
 						вам (называем дату и время)?
 					</p>
 					<div>
-						<button id='recall__clarification-yes'>Да</button>
-						<button id='recall__clarification-no' class='right-button'>Нет</button>
+						<button id='recall__mastertime-yes'>Да</button>
+						<button id='recall__mastertime-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide' id='recall__newtime'>
+				<div class='blocks hide notgreeting' id='recall__newtime'>
 					<p>
 						Подскажите, пожалуйста, какое время для вас будет удобным?
 					</p>
 					<div>
-						<button id='recall__newtime-continue' class='right-button'>Далее</button>
+						<button id='recall__newtime-continue' class='alone-button'>Далее</button>
 					</div>
 				</div>
-				<div class='blocks hide' id='recall__goodbye'>
+				<div class='blocks hide notgreeting' id='recall__goodbye'>
 					<p>
 						Хорошо, (называем ФИО клиента) назначаем визит специалиста на<br> 
 						(проговариваем дату и время) по адресу (проговариваем адрем) для<br>выездной ремонт (называем фиму и название техники) все верно?<br>
 						В таком случае, ожидайте мастера, всего доброго, до свидания!<br>
 					</p>
 				</div>
-				<div class='blocks hide' id='time-transfer__newtime'>
+				<div class='blocks hide notgreeting' id='time-transfer__newtime'>
 					<p>
 						Прошу прощения за сложившуюся ситуацию, к сожалению, мастер не<br> может приехать в назначенную время, так как задерживается на<br> предыдущих заказах. В связи с этим, подскажите удобно ли было<br> 
 						бы принять специалиста (называем дату и время)?<br>
 					</p>
 					<div>
 						<button id='time-transfer__newtime-yes'>Да</button>
-						<button id='time-transfer__newtime-no'>Нет</button>
-						<button id='time-transfer__newtime-negative' class='right-button'>Абонент негативно настроен</button>
+						<button id='time-transfer__newtime-no' class='right-button'>Нет</button>
 					</div>
+					<button id='time-transfer__newtime-negative' class='alone-button'>Абонент негативно настроен</button>
 				</div>
-				<div class='blocks hide' id='time-transfer__negative'>
+				<div class='blocks hide notgreeting' id='time-transfer__negative'>
 					<h2>
 						Выслушиваем клиента и не перебиваем.
 					</h2>
@@ -101,23 +106,23 @@
 						<button id='time-transfer__negative-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide' id='time-transfer__clienttime'>
+				<div class='blocks hide notgreeting' id='time-transfer__clienttime'>
 					<p>
 						Подскажите, пожалуйста, какое время для вас будет удобным?
 					</p>
 					<div>
-						<button id='time-transfer__clienttime-continue' class='right-button'>Далее</button>
+						<button id='time-transfer__clienttime-continue' class='alone-button'>Далее</button>
 					</div>
 				</div>
-				<div class='blocks hide' id='time-transfer__ourtime'>
+				<div class='blocks hide notgreeting' id='time-transfer__ourtime'>
 					<p>
 						Спасибо за ответ! Давайте сверим данные, скажите, пожалуйста,  полное ФИО и адрес проживания.
 					</p>
 					<div>
-						<button id='time-transfer__ourtime-continue' class='right-button'>Далее</button>
+						<button id='time-transfer__ourtime-continue' class='alone-button'>Далее</button>
 					</div>
 				</div>
-				<div class='blocks hide' id='time-transfer__clarification'>
+				<div class='blocks hide notgreeting' id='time-transfer__clarification'>
 					<p>
 						Хорошо, (называем ФИО клиента) назначаем визит специалиста на<br>  
 						(проговариваем дату и время) по адресу (проговариваем адрем)для <br> 
@@ -129,21 +134,97 @@
 						<button id='time-transfer__clarification-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide' id='time-transfer__question'>
+				<div class='blocks hide notgreeting' id='time-transfer__question'>
 					<p>
 						Отвечаем на вопросы.
 					</p>
 					<div>
-						<button id='time-transfer__question-continue' class='right-button'>Далее</button>
+						<button id='time-transfer__question-continue' class='alone-button'>Далее</button>
 					</div>
 				</div>
-				<div class='blocks hide' id='time-transfer__goodbye'>
+				<div class='blocks hide notgreeting' id='time-transfer__goodbye'>
 					<p>
 						В таком случае, ожидайте мастера, всего доброго, до свидания!
 					</p>
 				</div>
-				<button class='hide home-button' id='home'>Домой (сброс ответов)</button>
+				<div class='blocks hide notgreeting' id='first-call__checking'>
+					<p>
+						Для формирования заявки на выезд мастера, мне нужно уточнить информацию.<br>
+						Подскажите, пожалуйста, у вас обращение по гарантии или это платный ремонт?<br>
+					</p>
+					<div>
+						<button id='first-call__checking-warranty'>Гарантийный ремонт</button>
+						<button id='first-call__checking-paid' class='right-button'>Платный ремонт</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='first-call__paidbrand'>
+					<p>
+						Большое спасибо! С каким устройством обращаетесь?<br>
+						(необходимо узнать бренд и изделие)
+					</p>
+					<div>
+						<button id='first-call__paidbrand-continue' class='alone-button'>Далее</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='first-call__paidmodel'>
+					<p>
+						Хорошо,(ИО) необходимо уточнить полное название модели.
+					</p>
+					<div>
+						<button id='first-call__paidmodel-continue' class='alone-button'>Далее</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='first-call__paiddefect'>
+					<p>
+						Поскажите, пожалуйста, как именно проявляется дефект?
+					</p>
+					<div>
+						<button id='first-call__paiddefect-continue' class='alone-button'>Далее</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='first-call__paidfreqency'>
+					<p>
+						Большое спасибо за ответ, а как часто проявляется<br> неисправность?
+					</p>
+					<div>
+						<button id='first-call__paidfreqency-continue' class='alone-button'>Далее</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='first-call__paidlong'>
+					<p>
+						Я вас понял(ла), (ИО абонента), как давно появилась неисправность?
+					</p>
+					<div>
+						<button id='first-call__paidlong-continue' class='alone-button'>Далее</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='first-call__confirmation'>
+					<p>
+						Правильно понимаю, возникли проблемы с (описываем дефект) все верно?
+					</p>
+					<div>
+						<button id='first-call__confirmation-yes'>Да</button>
+						<button id='first-call__confirmation-no' class='right-button'>Нет</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='first-call__addquestion'>
+					<p>
+						Задаем уточняющий вопрос.
+					</p>
+					<div>
+						<button id='first-call__addquestion-continue' class='alone-button'>Далее</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='first-call__afteraddquestion'>
+					<p>
+						Хорошо, я вас понял.
+					</p>
+					<div>
+						<button id='first-call__afteraddquestion-continue' class='alone-button'>Далее</button>
+					</div>
+				</div>
 			</section>
+			<button class='hide home-button' id='home'>Домой (сброс ответов)</button>
 		</main>
 		<footer>
 			<p>

@@ -1,18 +1,19 @@
-let home = document.getElementById('home');
-let greetingTerritory = document.getElementById('greeting__territory');
-let greetingAppeal = document.getElementById('greeting__appeal');
-let generalCheckingGreeting = document.getElementById('general-checking__greeting');
-let generalCheckingGoodbyeMistake = document.getElementById('general-checking__goodbye-mistake');
-let recallClarification = document.getElementById('recall__clarification');
-let recallNewTime = document.getElementById('recall__newtime');
-let recallGoodbye = document.getElementById('recall__goodbye');
-let timeTransferNewTime = document.getElementById('time-transfer__newtime');
-let timeTransferNegative = document.getElementById('time-transfer__negative');
-let timeTransferClientTime = document.getElementById('time-transfer__clienttime');
-let timeTransferOurTime = document.getElementById('time-transfer__ourtime');
-let timeTransferClarification = document.getElementById('time-transfer__clarification');
-let timeTransferQuestion = document.getElementById('time-transfer__question');
-let timeTransferGoodbye = document.getElementById('time-transfer__goodbye');
+let greetingTerritory = document.querySelector('#greeting__territory');
+let greetingAppeal = document.querySelector('#greeting__appeal');
+let generalCheckingGreeting = document.querySelector('#general-checking__greeting');
+let generalCheckingGoodbyeMistake = document.querySelector('#general-checking__goodbye-mistake');
+let recallClarification = document.querySelector('#recall__clarification');
+let recallMastertime = document.querySelector('#recall__mastertime');
+let recallNewTime = document.querySelector('#recall__newtime');
+let recallGoodbye = document.querySelector('#recall__goodbye');
+let timeTransferNewTime = document.querySelector('#time-transfer__newtime');
+let timeTransferNegative = document.querySelector('#time-transfer__negative');
+let timeTransferClientTime = document.querySelector('#time-transfer__clienttime');
+let timeTransferOurTime = document.querySelector('#time-transfer__ourtime');
+let timeTransferClarification = document.querySelector('#time-transfer__clarification');
+let timeTransferQuestion = document.querySelector('#time-transfer__question');
+let timeTransferGoodbye = document.querySelector('#time-transfer__goodbye');
+let home = document.querySelector("#home");
 
 let isRecall = false;
 let isFirstCall = false;
@@ -49,13 +50,16 @@ function catchClick(event) {
 				showBlock(timeTransferNewTime);
 			}
 			break;
-		case 'recall__clarification-no':
+		case 'recall__clarification-continue':
+			showBlock(recallMastertime);
+			break;
+		case 'recall__mastertime-no':
 			showBlock(recallNewTime);
 			break;
 		case 'recall__newtime-continue':
 			showBlock(recallGoodbye);
 			break;
-		case 'recall__clarification-yes':
+		case 'recall__mastertime-yes':
 			showBlock(recallGoodbye);
 			break;
 		case 'time-transfer__newtime-negative':
@@ -80,10 +84,10 @@ function catchClick(event) {
 			showBlock(timeTransferClarification);
 			break;
 		case 'time-transfer__clarification-no':
-			showBlock(timeTransferQuestion);
+			showBlock(timeTransferGoodbye);
 			break;
 		case 'time-transfer__clarification-yes':
-			showBlock(timeTransferGoodbye);
+			showBlock(timeTransferQuestion);
 			break;
 		case 'time-transfer__question-continue':
 			showBlock(timeTransferGoodbye);
@@ -110,15 +114,18 @@ function hideBlock(block) {
 
 function showBlock(block) {
 	block.style.display = 'flex';
+	javascript:window.scrollTo(0,document.body.scrollHeight)
 }
 
 function showButton(button) {
 	button.style.display = 'inline-block';
+	javascript:window.scrollTo(0,document.body.scrollHeight)
 }
 
 function goStart() {
-	hideBlock(wrap);
-	showBlock(wrap);
-	showBlock(greetingTerritory);
-	showBlock(greetingAppeal);
+	let elements = document.querySelectorAll('.notgreeting');
+
+	for (let elem of elements) {
+		elem.style.display = 'none';
+	}
 }

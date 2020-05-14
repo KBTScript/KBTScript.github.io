@@ -48,7 +48,7 @@ section {
 	align-items: center;
 	justify-content: space-between;
 	flex-direction: column;
-	margin: 0px;
+	margin: 0px 0px 20px 0px;
 	border: solid 2px #FF9900;
 	border-radius: 10px;
 	background: #FFFFFF;
@@ -66,12 +66,25 @@ footer p {
 	margin: 0px;
 }
 
+select {
+	margin: 0px 0px 20px 0px;
+}
+
 .blocks {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	flex-direction: column;
-	padding: 20px 60px;
+	padding: 0px 40px 0px 40px;
+	margin: 0px 0px 0px 0px;
+}
+
+.button-blocks {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: row;
+	padding: 0px 40px 0px 40px;
 	margin: 0px 0px 0px 0px;
 }
 
@@ -88,5 +101,9 @@ footer p {
 }
 
 .home-button {
-	margin: 20px 0px 0px 0px;
+	margin: 0px;
+}
+
+.greeting__button {
+	width: 400px;
 }
