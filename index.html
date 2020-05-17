@@ -159,7 +159,18 @@
 					</div>
 				</div>
 
-				<!-- Изделие приобретено не в ДНС -->
+				<!-- Гарантийны ремонт - Изделие приобретено в ДНС-->
+				<div class='blocks hide notgreeting' id='first-call__warrantyDNSClient'>
+					<p>
+						Выберите один из вариантов.
+					</p>
+					<button id='first-call__warrantyDNSClient-dexp' class='alone-button'>Гарантийный ремонт (продукт компании DEXP)</button>
+					<button id='first-call__warrantyDNSClient-notautor' class='alone-button'>Гарантийный ремонт (нет авторизации)</button>
+					<button id='first-call__warrantyDNSClient-autor' class='alone-button'>Гарантийный ремонт (есть авторизация)</button>
+					<button id='first-call__warrantyDNSClient-qual' class='alone-button'>Проверка качества</button>
+				</div>
+
+				<!-- Гарантийны ремонт - Изделие приобретено не в ДНС/ Изделие приобретено в ДНС (нет авторизации/ проверка качества) -->
 				<div class='blocks hide notgreeting' id='first-call__warrantynumber'>
 					<p>
 						Спасибо за предоставленную информацию. Для более комфотрного и<br> оперативного устранения поломки, вы можете самостоятельно обратииться<br> в (называем фиирму изготовитель) для составления заявки по устранению<br> неполадки. Подсказать вам номер по которому можете связаться?
@@ -169,7 +180,17 @@
 						<button id='first-call__warrantynumber-no' class='right-button'>Нет - абонент настроен негативно</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='first-call__warrantynumberno'>
+
+				<!-- Гарантийны ремонт - Изделие приобретено в ДНС - нет авторизации/ проверка качества -->
+				<div class='blocks hide notgreeting' id='first-call__warrantynumbernoDNS'>
+					<p>
+						Хорошо, давайте попробуем устранить неполадку удаленно.
+					</p>
+					<button id='first-call__warrantynumbernoDNS-continue' class='alone-button'>Далее</button>
+				</div>
+
+				<!-- Гарантийны ремонт - Изделие приобретено не в ДНС -->
+				<div class='blocks hide notgreeting' id='first-call__warrantynumbernonotDNS'>
 					<p>
 						(ИО) подскажите, Какого числа был приобретен товар?
 					</p>
@@ -178,6 +199,8 @@
 						<button id='first-call__warrantynumberno-lessyear' class='right-button'>Прошло менее года с момента покупки</button>
 					</div>
 				</div>
+
+				<!-- Гарантийны ремонт - Изделие приобретено не в ДНС/ Изделие приобретено в ДНС (нет авторизации)/ Проверка качества -->
 				<div class='blocks hide notgreeting' id='first-call__warrantynumberyes'>
 					<p>
 						Hansa__________________8 (800) 700 3661<br> 
@@ -195,6 +218,64 @@
 					</p>
 				</div>
 
+				<!-- Гарантийный ремонт - поиск чека -->
+				<div class='blocks hide notgreeting' id='warranty__bill'>
+					<p>
+						(Имя Отчество клиента), назовите, пожалуйста, номер чека.<br> Номер находится в верхнем правом углу, он состоит из Х цифр.
+					</p>
+					<div>
+						<button id='warranty__bill-have'>Чек есть</button>
+						<button id='warranty__bill-havenot' class='right-button'>Чек не в наличии</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='warranty__billhavenot'>
+					<p>
+						Тогда подскажите, пожалуйста, бренд; модель товара; дату и место покупки?
+					</p>
+					<div>
+						<button id='warranty__bill-havedata'>Клиент назвал данные</button>
+						<button id='warranty__bill-havenotdata' class='right-button'>Клиент не назвал данные</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='warranty__billhavenotdata'>
+					<p>
+						К сожалению мне необходимы эти данные для формирования заказа. Перезвоните пожалуйста, когда данные будут найдены.
+					</p>
+				</div>
+				<div class='blocks hide notgreeting' id='warranty__billhavedata'>
+					<p>
+						Большое спасибо за информацию! Мне потребуется несколько минут, чтобы найти устройство в базе, ожидайте, пожалуйста, на линии!
+					</p>
+					<div>
+						<button id='warranty__billhavedata-product'>Товар найден</button>
+						<button id='warranty__billhavedata-productnot' class='right-button'>Товар не найден</button>
+					</div>
+					<button id='warranty__billhavedata-searchinstruction' class='alone-button'>Не знаю как искать товар</button>
+				</div>
+				<div class='blocks hide notgreeting' id='warranty__billhave'>
+					<p>
+						Большое спасибо! Ожидайте, пожалуйста, на линии мне потребуется несколько минут, чтобы найти ваш товар в базе данных. <i>Ставим клиента на удержание. Ищем товар в 1С.</i>
+					</p>
+					<div>
+						<button id='warranty__billhave-product'>Товар найден</button>
+						<button id='warranty__billhave-searchinstruction' class='right-button'>Не знаю как искать товар</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='warranty__billinstruction'>
+					<p>
+						Инструкция по поиску товара в базе.
+					</p>
+					<div>
+						<button id='warranty__billinstruction-product'>Товар найден</button>
+						<button id='warranty__billinstruction-productnot' class='right-button'>Товар не найден</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='warranty__billwrongdata'>
+					<p>
+						(Имя Отчество клиента), к сожалению, по дате и месту покупке устройства, которые вы назвали не получилось найти.
+					</p>
+				</div>
+
 				<!-- Платный ремонт - полное название модели -->
 				<div class='blocks hide notgreeting' id='first-call__paidmodel'>
 					<p>
@@ -204,10 +285,9 @@
 				</div>
 
 				<!-- Для всех ремонтов описание деффекта -->
-
 				<div class='blocks hide notgreeting' id='first-call__deffect'>
 					<p>
-						Поскажите, пожалуйста, как именно проявляется дефект?
+						Подскажите, пожалуйста, как именно проявляется дефект?
 					</p>
 					<button id='first-call__deffect-continue' class='alone-button'>Далее</button>
 				</div>
@@ -675,6 +755,64 @@
 				<div class='blocks hide notgreeting' id='problemdirectory__resolvedgoodbye'>
 					<p>
 						(ИО) спасибо за обращение в компанию ДСН, всего доброго, досвидания.
+					</p>
+				</div>
+
+				<!-- Гарантийный ремонт - поиск чека для не АСЦ -->
+				<div class='blocks hide notgreeting' id='warrantynotASC__bill'>
+					<p>
+						(Имя Отчество клиента), назовите, пожалуйста, номер чека.<br> Номер находится в верхнем правом углу, он состоит из Х цифр.
+					</p>
+					<div>
+						<button id='warrantynotASC__bill-have'>Чек есть</button>
+						<button id='warrantynotASC__bill-havenot' class='right-button'>Чек не в наличии</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='warrantynotASC__billhavenot'>
+					<p>
+						Тогда подскажите, пожалуйста, бренд; модель товара; дату и место покупки?
+					</p>
+					<div>
+						<button id='warrantynotASC__bill-havedata'>Клиент назвал данные</button>
+						<button id='warrantynotASC__bill-havenotdata' class='right-button'>Клиент не назвал данные</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='warrantynotASC__billhavenotdata'>
+					<p>
+						К сожалению мне необходимы эти данные для формирования заказа. Перезвоните пожалуйста, когда данные будут найдены.
+					</p>
+				</div>
+				<div class='blocks hide notgreeting' id='warrantynotASC__billhavedata'>
+					<p>
+						Большое спасибо за информацию! Мне потребуется несколько минут, чтобы найти устройство в базе, ожидайте, пожалуйста, на линии!
+					</p>
+					<div>
+						<button id='warrantynotASC__billhavedata-product'>Товар найден</button>
+						<button id='warrantynotASC__billhavedata-productnot' class='right-button'>Товар не найден</button>
+					</div>
+					<button id='warrantnotASCy__billhavedata-searchinstruction' class='alone-button'>Не знаю как искать товар</button>
+				</div>
+				<div class='blocks hide notgreeting' id='warrantynotASC__billhave'>
+					<p>
+						Большое спасибо! Ожидайте, пожалуйста, на линии мне потребуется несколько минут, чтобы найти ваш товар в базе данных. <i>Ставим клиента на удержание. Ищем товар в 1С.</i>
+					</p>
+					<div>
+						<button id='warrantynotASC__billhave-product'>Товар найден</button>
+						<button id='warrantynotASC__billhave-searchinstruction' class='right-button'>Не знаю как искать товар</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='warrantynotASC__billinstruction'>
+					<p>
+						Инструкция по поиску товара в базе.
+					</p>
+					<div>
+						<button id='warrantynotASC__billinstruction-product'>Товар найден</button>
+						<button id='warrantynotASC__billinstruction-productnot' class='right-button'>Товар не найден</button>
+					</div>
+				</div>
+				<div class='blocks hide notgreeting' id='warrantynotASC__billwrongdata'>
+					<p>
+						(Имя Отчество клиента), к сожалению, по дате и месту покупке устройства, которые вы назвали не получилось найти.
 					</p>
 				</div>
 

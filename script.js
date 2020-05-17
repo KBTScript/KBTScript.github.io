@@ -25,10 +25,26 @@ let firstCallCheckingBrand = document.querySelector('#first-call__checkingbrand'
 // первичное обращение - гарантийный ремонт
 let firstCallWarrantyWhereBuy = document.querySelector('#first-call__warrantyWhereBuy');
 
-// первичное обращение - изделие куплено не в ДНС
+// первичное обращение - гарантийный ремонт - 
+// изделие приобретено не в ДНС/ изделие приобретено в ДНС (нет авторизации) / проверка качества
 let firstCallWarrantyNumber = document.querySelector('#first-call__warrantynumber');
-let firstCallWarrantyNumberNo = document.querySelector('#first-call__warrantynumberno');
 let firstCallWarrantyNumberYes = document.querySelector('#first-call__warrantynumberyes');
+
+// первичное обращение - изделие куплено в ДНС
+let firstCallWarrantyDNSClient = document.querySelector('#first-call__warrantyDNSClient');
+let firstCallWarrantyNumberNoDNS = document.querySelector('#first-call__warrantynumbernoDNS');
+
+// первичное обращение - изделие куплено не в ДНС
+let firstCallWarrantyNumberNoNotDNS = document.querySelector('#first-call__warrantynumbernonotDNS');
+
+// гарантийный ремонт - поиск чека 
+let warrantyBill = document.querySelector('#warranty__bill');
+let warrantyBillHaveNot = document.querySelector('#warranty__billhavenot');
+let warrantyBillHaveNotData = document.querySelector('#warranty__billhavenotdata');
+let warrantyBillHaveData = document.querySelector('#warranty__billhavedata');
+let warrantyBillHave = document.querySelector('#warranty__billhave');
+let warrantyBillInstruction = document.querySelector('#warranty__billinstruction');
+let warrantyBillWrongData = document.querySelector('#warranty__billwrongdata');
 
 // первичное обращение - платный ремонт - модель
 let firstCallPaidModel = document.querySelector('#first-call__paidmodel');
@@ -102,10 +118,6 @@ let ProblemDirectoryHood = document.querySelector('#problemdirectory__hood');
 // вытяжка - плохая тяга
 let HoodFirstVariant = document.querySelector('#hood__firstvariant');
 let HoodFirstVariantNo = document.querySelector('#hood__firstvariantno');
-// вытяжка - вызов мастера
-let HoodNotResolved = document.querySelector('#hood__notresolved');
-let HoodNotResolvedYes = document.querySelector('#hood__notresolvedyes');
-let HoodNotResolvedGoodBye = document.querySelector('#hood__notresolvedgoodbye');
 
 // посудомоечная машина
 let ProblemDirectoryDishwasher = document.querySelector('#problemdirectory__dishwasher');
@@ -131,6 +143,15 @@ let GasSecondVariantYes = document.querySelector('#gas__secondvariantyes');
 
 // завершение регистрации
 let ProblemDirectoryAskResolve = document.querySelector('#problemdirectory__askresolve');
+
+// гарантийный ремонт - поиск чека 
+let warrantyNotASCBill = document.querySelector('#warrantynotASC__bill');
+let warrantyNotASCBillHaveNot = document.querySelector('#warrantynotASC__billhavenot');
+let warrantyNotASCBillHaveNotData = document.querySelector('#warrantynotASC__billhavenotdata');
+let warrantyNotASCBillHaveData = document.querySelector('#warrantynotASC__billhavedata');
+let warrantyNotASCBillHave = document.querySelector('#warrantynotASC__billhave');
+let warrantyNotASCBillInstruction = document.querySelector('#warrantynotASC__billinstruction');
+let warrantyNotASCBillWrongData = document.querySelector('#warrantynotASC__billwrongdata');
 
 // проблема решена по телефону
 let ProblemDirectoryResolved = document.querySelector('#problemdirectory__resolved');
@@ -168,9 +189,14 @@ let isTimeTransfer = false;
 let isWarranty = false;
 let isPaid = false;
 
+// метки товар куплен в ДНС или нет
+isDNSClient = false;
+isASC = false;
+isNotASC = false;
+
 // метки для обозначения техники
-let isHood = false;
-let isGas = false;
+let isPaidHood = false;
+let isPaidGas = false;
 
 document.addEventListener('click', (event) => catchClick(event));
 
@@ -274,23 +300,87 @@ function catchClick(event) {
 			}
 			break;
 
-		// первичное обращение - гарантийный ремонт
-
-		// первичное обращение - гарантийный ремонт - покупали не в ДНС
+		// первичное обращение - гарантийный ремонт - 
+		// изделие приобретено не в ДНС/ 
+		// изделие приобретено в ДНС (нет авторизации)/ 
+		// проверка качества
 		case 'first-call__warrantyDNS-no':
 			showBlock(firstCallWarrantyNumber);
 			break;
+		case 'first-call__warrantyDNS-yes':
+			showBlock(firstCallWarrantyDNSClient);
+			break;
+
+		// первичное обращение - гарантийный ремонт - 
+		// покупали в ДНС
+		case 'first-call__warrantyDNSClient-dexp':
+			showBlock(warrantyBill);
+			break;
+		case 'first-call__warrantyDNSClient-notautor':		
+			showBlock(firstCallWarrantyNumber);
+			isDNSClient = true;
+			isNotASC = true;
+			break;
+		case 'first-call__warrantyDNSClient-autor':
+			showBlock(warrantyBill);
+			isDNSClient = true;
+			isASC = true;
+			break;
+		case 'first-call__warrantyDNSClient-qual':
+			showBlock(firstCallWarrantyNumber);
+			isDNSClient = true;
+			isNotASC = true;
+			break;
+		
+		// первичное обращение - гарантийный ремонт - 
+		// покупали не в ДНС
 		case 'first-call__warrantynumber-yes':
 			showBlock(firstCallWarrantyNumberYes);
 			break;
 		case 'first-call__warrantynumber-no':
-			showBlock(firstCallWarrantyNumberNo);
+			if(isDNSClient) {
+				showBlock(firstCallWarrantyNumberNoDNS);
+			} else {
+				showBlock(firstCallWarrantyNumberNoNotDNS);
+			}
 			break;
 		case 'first-call__warrantynumberno-moreyear':
 			showBlock(firstCallWarrantyNumberYes);
 			break;
 		case 'first-call__warrantynumberno-lessyear':
 			showBlock(firstCallDeffect);
+			break;
+		case 'first-call__warrantynumbernoDNS-continue':
+			showBlock(firstCallDeffect);
+			break;
+
+		// гарантийный ремонт - поиск чека
+		case 'warranty__bill-have':
+			showBlock(warrantyBillHave);
+			break;
+		case 'warranty__bill-havenot':
+			showBlock(warrantyBillHaveNot);
+			break;
+		case 'warranty__bill-havedata':
+			showBlock(warrantyBillHaveData);
+			break;
+		case 'warranty__bill-havenotdata':
+			showBlock(warrantyBillHaveNotData);
+			break;
+		case 'warranty__billhavedata-product':
+			showBlock(firstCallDeffect);
+			break;
+		case 'warranty__billhavedata-productnot':
+			showBlock(warrantyBillWrongData);
+			break;
+		case 'warranty__billhavedata-searchinstruction':
+			showBlock(warrantyBillInstruction);
+			break;
+		case 'warranty__billhave-product':
+			showBlock(firstCallDeffect);
+			break;
+		case 'warranty__billhave-searchinstruction':
+			showBlock(warrantyBillInstruction);
 			break;
 
 		// первичное обращение - платный ремонт 
@@ -542,7 +632,9 @@ function catchClick(event) {
 			break;
 		case 'hood__firstvariantno-continue':
 			showBlock(ProblemDirectoryAskResolve);
-			isHood = true;
+			if (isPaid) {
+				isHood = true;
+			}
 			break;
 
 		// посудомоечная машина
@@ -605,7 +697,9 @@ function catchClick(event) {
 		// газовая поверхность - проблема с подключением газового шланга
 		case 'gas__firstvariant-continue':
 			showBlock(ProblemDirectoryAskResolve);
-			isGas = true;
+			if (isPaid) {
+				isPaidGas = true;
+			}
 			break;
 		// газовая поверхность - во время работы выключается аппарт
 		case 'gas__secondvariant-yes':
@@ -616,7 +710,9 @@ function catchClick(event) {
 			break;
 		case 'gas__secondvariantyes-continue':
 			showBlock(ProblemDirectoryAskResolve);
-			isGas = true;
+			if (isPaid) {
+				isPaidGas = true;
+			}
 			break;
 
 		// завершение регистрации
@@ -624,15 +720,48 @@ function catchClick(event) {
 			showBlock(ProblemDirectoryResolved);
 			break;
 		case 'problemdirectory__askresolve-no':
-			if (isHood){
-				showBlock(HoodNotResolved);
+			if (isPaidHood){
+				showBlock(ProblemDirectoryNotDNSNotResolved);
 			}
-			else if (isGas) {
-				showBlock();
+			else if (isPaidGas) {
+				showBlock(ProblemDirectoryASCNotResolved);
+			} else if (isASC) {
+				showBlock(ProblemDirectoryASCNotResolved);
+			} else if (isNotASC) {
+				showBlock(warrantyNotASCBill);
 			}
 			else {
 				showBlock(ProblemDirectoryNotResolved);
 			}
+			break;
+
+		// гарантийный ремонт - поиск чека
+		case 'warrantynotASC__bill-have':
+			showBlock(warrantyNotASCBillHave);
+			break;
+		case 'warrantynotASC__bill-havenot':
+			showBlock(warrantyNotASCBillHaveNot);
+			break;
+		case 'warrantynotASC__bill-havedata':
+			showBlock(warrantyNotASCBillHaveData);
+			break;
+		case 'warrantynotASC__bill-havenotdata':
+			showBlock(warrantyNotASCBillHaveNotData);
+			break;
+		case 'warrantynotASC__billhavedata-product':
+			showBlock(ProblemDirectoryNotResolved);
+			break;
+		case 'warrantynotASC__billhavedata-productnot':
+			showBlock(warrantyNotASCBillWrongData);
+			break;
+		case 'warrantynotASC__billhavedata-searchinstruction':
+			showBlock(warrantyNotASCBillInstruction);
+			break;
+		case 'warrantynotASC__billhave-product':
+			showBlock(ProblemDirectoryNotResolved);
+			break;
+		case 'warrantynotASC__billhave-searchinstruction':
+			showBlock(warrantyNotASCBillInstruction);
 			break;
 
 		// проблема решена по телефону
@@ -731,6 +860,9 @@ function goStart() {
 	isFirstCall = false;
 	isWarranty = false;
 	isPaid = false;
-	isHood = false;
-	isGas = false;
+	isPaidHood = false;
+	isPaidGas = false;
+	isDNSClient = false;
+	isASC = false;
+	isNotASC = false;
 }
