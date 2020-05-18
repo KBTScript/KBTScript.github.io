@@ -143,6 +143,7 @@ let GasSecondVariantYes = document.querySelector('#gas__secondvariantyes');
 
 // завершение регистрации
 let ProblemDirectoryAskResolve = document.querySelector('#problemdirectory__askresolve');
+let ProblemDirectoryNeedMaster = document.querySelector('#problemdirectory__needmaster');
 
 // гарантийный ремонт - поиск чека 
 let warrantyNotASCBill = document.querySelector('#warrantynotASC__bill');
@@ -382,6 +383,12 @@ function catchClick(event) {
 		case 'warranty__billhave-searchinstruction':
 			showBlock(warrantyBillInstruction);
 			break;
+		case 'warranty__billinstruction-product':
+			showBlock(firstCallDeffect);
+			break;
+		case 'warranty__billinstruction-productnot':
+			showBlock(warrantyBillWrongData);
+			break;
 
 		// первичное обращение - платный ремонт 
 		case 'first-call__paidmodel-continue':
@@ -445,7 +452,7 @@ function catchClick(event) {
 			showBlock(StoveSecondVariant);
 			break;
 		case 'problemdirectory__stove-thirdvariantbut':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		// электрическая поверхность - не включается
 		case 'stove__firstvariant-yes':
@@ -462,7 +469,7 @@ function catchClick(event) {
 			break;
 		// электрическая поверхность - пятна на стекле
 		case 'stove__secondvariant-yes':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'stove__secondvariant-no':
 			showBlock(StoveSecondVariantNo);
@@ -476,14 +483,14 @@ function catchClick(event) {
 			showBlock(ConditionFirstVariant);
 			break;
 		case 'problemdirectory__condition-secondvariantbut':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		// кондиционер - капает вода из корпуса
 		case 'condition__firstvariant-first':
 			showBlock(ConditionFirstVariantFirst);
 			break;
 		case 'condition__firstvariant-second':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'condition__firstvariantfirst-continue':
 			showBlock(ProblemDirectoryAskResolve);
@@ -497,7 +504,7 @@ function catchClick(event) {
 			showBlock(RefrigeratorSecondVariant);
 			break;
 		case 'problemdirectory__refrigerator-thirdvariantbut':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		// холодильник - греются стенки
 		case 'refrigerator__firstvariant-continue':
@@ -512,7 +519,7 @@ function catchClick(event) {
 			showBlock(ProblemDirectoryResolved);
 			break;
 		case 'refrigerator__resolve-no':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// стиральная машина
@@ -535,7 +542,7 @@ function catchClick(event) {
 			showBlock(WasherSixthVariant);
 			break;
 		case 'problemdirectory__washer-seventhvariantbut':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		// стиральная машина - течет/образуется много пены
 		case 'washer__firstvariant-yes':
@@ -603,14 +610,14 @@ function catchClick(event) {
 			showBlock(OvenFirstVariant);
 			break;
 		case 'problemdirectory__oven-secondvariantbut':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		// духовой шкаф - во время работы выключается аппарт
 		case 'oven__firstvariant-yes':
 			showBlock(OvenFirstVariantYes);
 			break;
 		case 'oven__firstvariant-no':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'oven__firstvariantyes-continue':
 			showBlock(ProblemDirectoryAskResolve);
@@ -621,11 +628,11 @@ function catchClick(event) {
 			showBlock(HoodFirstVariant);
 			break;
 		case 'problemdirectory__hood-secondvariantbut':
-			showBlock(ProblemDirectoryNotDNSNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		// вытяжка - плохая тяга
 		case 'hood__firstvariant-yes':
-			showBlock(ProblemDirectoryNotDNSNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'hood__firstvariant-no':
 			showBlock(HoodFirstVariantNo);
@@ -648,7 +655,7 @@ function catchClick(event) {
 			showBlock(DishwasherThirdVariant);
 			break;
 		case 'problemdirectory__dishwasher-fourthdvariantbut':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		// посудомоечная машина - не сливает воду/не моет посуду
 		case 'dishwasher__firstvariant-yes':
@@ -665,7 +672,7 @@ function catchClick(event) {
 			break;
 		// посудомоечная машина - не набирает воду
 		case 'dishwasher__secondvariant-yes':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'dishwasher__secondvariant-no':
 			showBlock(DishwasherSecondVariantNo);
@@ -675,7 +682,7 @@ function catchClick(event) {
 			break;
 		// посудомоечная машина - не выбирает режим мойки
 		case 'dishwasher__thirdvariant-yes':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'dishwasher__thirdvariant-no':
 			showBlock(DishwasherThirdVariantNo);
@@ -692,7 +699,7 @@ function catchClick(event) {
 			showBlock(GasSecondVariant);
 			break;
 		case 'problemdirectory__gas-thirdvariantbut':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		// газовая поверхность - проблема с подключением газового шланга
 		case 'gas__firstvariant-continue':
@@ -706,7 +713,7 @@ function catchClick(event) {
 			showBlock(GasSecondVariantYes);
 			break;
 		case 'gas__secondvariant-no':
-			showBlock(ProblemDirectoryNotResolved);
+			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'gas__secondvariantyes-continue':
 			showBlock(ProblemDirectoryAskResolve);
@@ -720,6 +727,9 @@ function catchClick(event) {
 			showBlock(ProblemDirectoryResolved);
 			break;
 		case 'problemdirectory__askresolve-no':
+			showBlock(ProblemDirectoryNeedMaster);
+			break;
+		case 'problemdirectory__needmaster-continue':
 			if (isPaidHood){
 				showBlock(ProblemDirectoryNotDNSNotResolved);
 			}
