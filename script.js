@@ -145,7 +145,7 @@ let GasSecondVariantYes = document.querySelector('#gas__secondvariantyes');
 let ProblemDirectoryAskResolve = document.querySelector('#problemdirectory__askresolve');
 let ProblemDirectoryNeedMaster = document.querySelector('#problemdirectory__needmaster');
 
-// гарантийный ремонт - поиск чека 
+// гарантийный ремонт не АСЦ - поиск чека 
 let warrantyNotASCBill = document.querySelector('#warrantynotASC__bill');
 let warrantyNotASCBillHaveNot = document.querySelector('#warrantynotASC__billhavenot');
 let warrantyNotASCBillHaveNotData = document.querySelector('#warrantynotASC__billhavenotdata');
@@ -194,10 +194,6 @@ let isPaid = false;
 isDNSClient = false;
 isASC = false;
 isNotASC = false;
-
-// метки для обозначения техники
-let isPaidHood = false;
-let isPaidGas = false;
 
 document.addEventListener('click', (event) => catchClick(event));
 
@@ -514,11 +510,11 @@ function catchClick(event) {
 		case 'refrigerator__secondvariant-continue':
 			showBlock(RefrigeratorResolve);
 			break;
-		// холодильник - завершение
-		case 'refrigerator__resolve-yes':
+		// холодильник - завершение 
+		case 'refrigerator__resolve-no':
 			showBlock(ProblemDirectoryResolved);
 			break;
-		case 'refrigerator__resolve-no':
+		case 'refrigerator__resolve-yes':
 			showBlock(ProblemDirectoryNeedMaster);
 			break;
 
@@ -639,9 +635,6 @@ function catchClick(event) {
 			break;
 		case 'hood__firstvariantno-continue':
 			showBlock(ProblemDirectoryAskResolve);
-			if (isPaid) {
-				isHood = true;
-			}
 			break;
 
 		// посудомоечная машина
@@ -704,9 +697,6 @@ function catchClick(event) {
 		// газовая поверхность - проблема с подключением газового шланга
 		case 'gas__firstvariant-continue':
 			showBlock(ProblemDirectoryAskResolve);
-			if (isPaid) {
-				isPaidGas = true;
-			}
 			break;
 		// газовая поверхность - во время работы выключается аппарт
 		case 'gas__secondvariant-yes':
@@ -717,9 +707,6 @@ function catchClick(event) {
 			break;
 		case 'gas__secondvariantyes-continue':
 			showBlock(ProblemDirectoryAskResolve);
-			if (isPaid) {
-				isPaidGas = true;
-			}
 			break;
 
 		// завершение регистрации
@@ -730,12 +717,7 @@ function catchClick(event) {
 			showBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'problemdirectory__needmaster-continue':
-			if (isPaidHood){
-				showBlock(ProblemDirectoryNotDNSNotResolved);
-			}
-			else if (isPaidGas) {
-				showBlock(ProblemDirectoryASCNotResolved);
-			} else if (isASC) {
+			if (isASC) {
 				showBlock(ProblemDirectoryASCNotResolved);
 			} else if (isNotASC) {
 				showBlock(warrantyNotASCBill);
@@ -758,6 +740,9 @@ function catchClick(event) {
 		case 'warrantynotASC__bill-havenotdata':
 			showBlock(warrantyNotASCBillHaveNotData);
 			break;
+		case 'warrantnotASCy__billhavedata-searchinstruction':
+			showBlock(warrantyNotASCBillInstruction);
+			break;
 		case 'warrantynotASC__billhavedata-product':
 			showBlock(ProblemDirectoryNotResolved);
 			break;
@@ -772,6 +757,12 @@ function catchClick(event) {
 			break;
 		case 'warrantynotASC__billhave-searchinstruction':
 			showBlock(warrantyNotASCBillInstruction);
+			break;
+		case 'warrantynotASC__billinstruction-product':
+			showBlock(ProblemDirectoryNotResolved);
+			break;
+		case 'warrantynotASC__billinstruction-productnot':
+			showBlock(warrantyNotASCBillWrongData);
 			break;
 
 		// проблема решена по телефону
@@ -824,7 +815,7 @@ function catchClick(event) {
 			showBlock(ProblemDirectoryASCNotResolvedQuest);
 			break;
 		case 'problemdirectory__ASCnotresolvedquest-yes':
-			showBlock(ProblemDirectoryASCNotResolvedQuest);
+			showBlock(ProblemDirectoryASCNotResolvedQuestYes);
 			break;
 		case 'problemdirectory__ASCnotresolvedquest-no':
 			showBlock(ProblemDirectoryASCNotResolvedGoodBye);
@@ -870,8 +861,6 @@ function goStart() {
 	isFirstCall = false;
 	isWarranty = false;
 	isPaid = false;
-	isPaidHood = false;
-	isPaidGas = false;
 	isDNSClient = false;
 	isASC = false;
 	isNotASC = false;
