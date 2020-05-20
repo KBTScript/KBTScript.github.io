@@ -752,6 +752,9 @@ function catchClick(event) {
 		case 'warrantynotASC__billhavedata-searchinstruction':
 			showBlock(warrantyNotASCBillInstruction);
 			break;
+		case 'warrantnotASC__billhavedata-searchinstruction':
+			showBlock(warrantyNotASCBillInstruction);
+			break;
 		case 'warrantynotASC__billhave-product':
 			showBlock(ProblemDirectoryNotResolved);
 			break;
