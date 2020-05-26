@@ -26,12 +26,13 @@ h2 {
 
 p {
 	margin: 0px 0px 20px 0px;
-	font-size: 20px;
+	font-size: 30px;
+	text-align: center;
 }
 
 button {
 	font-size: 20px;
-	margin: 0px 20px 20px 0px;
+	margin: 0px 20px 0px 0px;
 	padding: 10px 40px;
 }
 
@@ -64,6 +65,7 @@ footer {
 
 footer p {
 	margin: 0px;
+	font-size: 20px;
 }
 
 select {
@@ -81,10 +83,7 @@ select {
 
 .button-blocks {
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
 	flex-direction: row;
-	padding: 0px 40px 0px 40px;
 	margin: 0px 0px 0px 0px;
 }
 
@@ -100,7 +99,7 @@ select {
 	margin: 0px 0px 20px 0px;
 }
 
-.home-button {
+.home-block {
 	margin: 0px;
 }
 

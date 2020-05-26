@@ -62,84 +62,28 @@ let ProblemDirectory = document.querySelector('#problemdirectory');
 
 // электрическая поверхность
 let ProblemDirectoryStove = document.querySelector('#problemdirectory__stove');
-// электрическая поверхность - не включается
-let StoveFirstVariant = document.querySelector('#stove__firstvariant');
-let StoveFirstVariantYes = document.querySelector('#stove__firstvariantyes');
-let StoveFirstVariantNo = document.querySelector('#stove__firstvariantno');
-// электрическая поверхность - пятна на стекле
-let StoveSecondVariant = document.querySelector('#stove__secondvariant');
-let StoveSecondVariantNo = document.querySelector('#stove__secondvariantno');
 
 // кондиционер
 let ProblemDirectoryCondition = document.querySelector('#problemdirectory__condition');
-// кондиционер - капает вода из корпуса
-let ConditionFirstVariant = document.querySelector('#condition__firstvariant');
-let ConditionFirstVariantFirst = document.querySelector('#condition__firstvariantfirst');
 
 // холодильник
 let ProblemDirectoryRefrigerator = document.querySelector('#problemdirectory__refrigerator');
 let RefrigeratorResolve = document.querySelector('#refrigerator__resolve');
-// холодильник - греются стенки
-let RefrigeratorFirstVariant = document.querySelector('#refrigerator__firstvariant');
-// холодильник - небольшой слой инея
-let RefrigeratorSecondVariant = document.querySelector('#refrigerator__secondvariant');
 
 // стиральная машина
 let ProblemDirectoryWasher = document.querySelector('#problemdirectory__washer');
-// стиральная машина - течет/образуется много пены
-let WasherFirstVariant = document.querySelector('#washer__firstvariant');
-let WasherFirstVariantYes = document.querySelector('#washer__firstvariantyes');
-let WasherFirstVariantNo = document.querySelector('#washer__firstvariantno');
-// стиральная машина - вода долго набирается/самослив/ошибка "нет воды"
-let WasherSecondVariant = document.querySelector('#washer__secondvariant');
-let WasherSecondVariantYes = document.querySelector('#washer__secondvariantyes');
-let WasherSecondVariantNo = document.querySelector('#washer__secondvariantno');
-// стиральная машина - не включается стиральная машина
-let WasherThirdVariant = document.querySelector('#washer__thirdvariant');
-let WasherThirdVariantYes = document.querySelector('#washer__thirdvariantyes');
-let WasherThirdVariantNo = document.querySelector('#washer__thirdvariantno');
-// стиральная машина - не отжимает/не сливает воду
-let WasherFourthVariant = document.querySelector('#washer__fourthvariant');
-let WasherFourthVariantYes = document.querySelector('#washer__fourthvariantyes');
-let WasherFourthVariantNo = document.querySelector('#washer__fourthvariantno');
-// стиральная машина - ошибка H2O/ не заливает воду
-let WasherFifthVariant = document.querySelector('#washer__fifthvariant');
-// стиральная машина - сильная вибрация
-let WasherSixthVariant = document.querySelector('#washer__sixthvariant');
 
 // духовой шкаф
 let ProblemDirectoryOven = document.querySelector('#problemdirectory__oven');
-// духовой шкаф - во время работы выключается аппарт
-let OvenFirstVariant = document.querySelector('#oven__firstvariant');
-let OvenFirstVariantYes = document.querySelector('#oven__firstvariantyes');
 
 // вытяжка
 let ProblemDirectoryHood = document.querySelector('#problemdirectory__hood');
-// вытяжка - плохая тяга
-let HoodFirstVariant = document.querySelector('#hood__firstvariant');
-let HoodFirstVariantNo = document.querySelector('#hood__firstvariantno');
 
 // посудомоечная машина
 let ProblemDirectoryDishwasher = document.querySelector('#problemdirectory__dishwasher');
-// посудомоечная машина - не сливает воду/не моет посуду
-let DishwasherFirstVariant = document.querySelector('#dishwasher__firstvariant');
-let DishwasherFirstVariantYes = document.querySelector('#dishwasher__firstvariantyes');
-let DishwasherFirstVariantNo = document.querySelector('#dishwasher__firstvariantno');
-// посудомоечная машина - не набирает воду
-let DishwasherSecondVariant = document.querySelector('#dishwasher__secondvariant');
-let DishwasherSecondVariantNo = document.querySelector('#dishwasher__secondvariantno');
-// посудомоечная машина - не выбирает режим мойки
-let DishwasherThirdVariant = document.querySelector('#dishwasher__thirdvariant');
-let DishwasherThirdVariantNo = document.querySelector('#dishwasher__thirdvariantno');
-let DishwasherThirdVariantGoodBye = document.querySelector('#dishwasher__thirdvariantgoodbye');
 
 // газовая поверхность
 let ProblemDirectoryGas = document.querySelector('#problemdirectory__gas');
-// газовая поверхность - проблема с подключением газового шланга
-let GasFirstVariant = document.querySelector('#gas__firstvariant');
-// газовая поверхность - во время работы выключается аппарт
-let GasSecondVariant = document.querySelector('#gas__secondvariant');
-let GasSecondVariantYes = document.querySelector('#gas__secondvariantyes');
 
 // завершение регистрации
 let ProblemDirectoryAskResolve = document.querySelector('#problemdirectory__askresolve');
@@ -181,6 +125,12 @@ let ProblemDirectoryASCNotResolvedGoodBye = document.querySelector('#problemdire
 //кнопка домой
 let home = document.querySelector("#home");
 
+// массив для хранения истории блоков, которые прошли
+let blocks = [];
+
+// текущий блок
+let currentBlock = greetingAppeal;
+
 // метки первичное обращение/повторное обращение/перенос времени
 let isFirstCall = false;
 let isRecall = false;
@@ -202,98 +152,95 @@ function catchClick(event) {
 	switch (elementId) {
 		// общий блок
 		case 'greeting__appeal-recall':
-			showBlock(generalCheckingGreeting);
-			showButton(home);
+			showNextBlock(generalCheckingGreeting);
 			isRecall = true;
 			break;
 		case 'greeting__appeal-timetransfer':
-			showBlock(generalCheckingGreeting);
-			showButton(home);
+			showNextBlock(generalCheckingGreeting);
 			isTimeTransfer = true;
 			break;
 		case 'greeting__appeal-firstcall':
-			showBlock(generalCheckingGreeting);
-			showButton(home);
+			showNextBlock(generalCheckingGreeting);
 			isFirstCall = true;
 			break;
 		case 'general-checking__greeting-no':
-			showBlock(generalCheckingGoodbyeMistake);
+			showNextBlock(generalCheckingGoodbyeMistake);
 			break;
 		case 'general-checking__greeting-yes':
 			if(isRecall){
-				showBlock(recallClarification);
+				showNextBlock(recallClarification);
 			}
 			if(isTimeTransfer){
-				showBlock(timeTransferNewTime);
+				showNextBlock(timeTransferNewTime);
 			}
 			if(isFirstCall){
-				showBlock(firstCallChecking);
+				showNextBlock(firstCallChecking);
 			}
 			break;
 
 		// повторное обращение
 		case 'recall__clarification-continue':
-			showBlock(recallMastertime);
+			showNextBlock(recallMastertime);
 			break;
 		case 'recall__mastertime-no':
-			showBlock(recallNewTime);
+			showNextBlock(recallNewTime);
 			break;
 		case 'recall__newtime-continue':
-			showBlock(recallGoodbye);
+			showNextBlock(recallGoodbye);
 			break;
 		case 'recall__mastertime-yes':
-			showBlock(recallGoodbye);
+			showNextBlock(recallGoodbye);
 			break;
 
 		// перенос времени
 		case 'time-transfer__newtime-negative':
-			showBlock(timeTransferNegative);
+			showNextBlock(timeTransferNegative);
 			break;
 		case 'time-transfer__negative-yes':
-			showBlock(timeTransferOurTime);
+			showNextBlock(timeTransferOurTime);
 			break;
 		case 'time-transfer__newtime-yes':
-			showBlock(timeTransferOurTime);
+			showNextBlock(timeTransferOurTime);
 			break;
 		case 'time-transfer__negative-no':
-			showBlock(timeTransferClientTime);
+			showNextBlock(timeTransferClientTime);
 			break;
 		case 'time-transfer__newtime-no':
-			showBlock(timeTransferClientTime);
+			showNextBlock(timeTransferClientTime);
 			break;
 		case 'time-transfer__clienttime-continue':
-			showBlock(timeTransferClarification);
+			showNextBlock(timeTransferClarification);
 			break;
 		case 'time-transfer__ourtime-continue':
-			showBlock(timeTransferClarification);
+			showNextBlock(timeTransferClarification);
 			break;
 		case 'time-transfer__clarification-no':
-			showBlock(timeTransferGoodbye);
+			showNextBlock(timeTransferGoodbye);
 			break;
 		case 'time-transfer__clarification-yes':
-			showBlock(timeTransferQuestion);
+			showNextBlock(timeTransferQuestion);
 			break;
 		case 'time-transfer__question-continue':
-			showBlock(timeTransferGoodbye);
+			showNextBlock(timeTransferGoodbye);
 			break;		
 
 		// первичное обращение - общее проверка бренда
 		case 'first-call__checking-warranty':
-			showBlock(firstCallCheckingBrand);
+			showNextBlock(firstCallCheckingBrand);
 			isWarranty = true;
 			break;
 		case 'first-call__checking-paid':
-			showBlock(firstCallCheckingBrand);
+			showNextBlock(firstCallCheckingBrand);
 			isPaid = true;
 			break;
 		case 'first-call__checkingbrand-continue':
 			console.log(isPaid);
 			console.log(isWarranty);
 			if (isPaid) {
-				showBlock(firstCallPaidModel); 
+				showNextBlock(firstCallPaidModel); 
 			} 
 			else if (isWarranty) {
-				showBlock(firstCallWarrantyWhereBuy);
+				showNextBlock(firstCallWarrantyWhereBuy);
 			}
 			break;
 
@@ -302,29 +249,29 @@ function catchClick(event) {
 		// изделие приобретено в ДНС (нет авторизации)/ 
 		// проверка качества
 		case 'first-call__warrantyDNS-no':
-			showBlock(firstCallWarrantyNumber);
+			showNextBlock(firstCallWarrantyNumber);
 			break;
 		case 'first-call__warrantyDNS-yes':
-			showBlock(firstCallWarrantyDNSClient);
+			showNextBlock(firstCallWarrantyDNSClient);
 			break;
 
 		// первичное обращение - гарантийный ремонт - 
 		// покупали в ДНС
 		case 'first-call__warrantyDNSClient-dexp':
-			showBlock(warrantyBill);
+			showNextBlock(warrantyBill);
 			break;
 		case 'first-call__warrantyDNSClient-notautor':		
-			showBlock(firstCallWarrantyNumber);
+			showNextBlock(firstCallWarrantyNumber);
 			isDNSClient = true;
 			isNotASC = true;
 			break;
 		case 'first-call__warrantyDNSClient-autor':
-			showBlock(warrantyBill);
+			showNextBlock(warrantyBill);
 			isDNSClient = true;
 			isASC = true;
 			break;
 		case 'first-call__warrantyDNSClient-qual':
-			showBlock(firstCallWarrantyNumber);
+			showNextBlock(firstCallWarrantyNumber);
 			isDNSClient = true;
 			isNotASC = true;
 			break;
@@ -332,506 +279,349 @@ function catchClick(event) {
 		// первичное обращение - гарантийный ремонт - 
 		// покупали не в ДНС
 		case 'first-call__warrantynumber-yes':
-			showBlock(firstCallWarrantyNumberYes);
+			showNextBlock(firstCallWarrantyNumberYes);
 			break;
 		case 'first-call__warrantynumber-no':
 			if(isDNSClient) {
-				showBlock(firstCallWarrantyNumberNoDNS);
+				showNextBlock(firstCallWarrantyNumberNoDNS);
 			} else {
-				showBlock(firstCallWarrantyNumberNoNotDNS);
+				showNextBlock(firstCallWarrantyNumberNoNotDNS);
 			}
 			break;
 		case 'first-call__warrantynumberno-moreyear':
-			showBlock(firstCallWarrantyNumberYes);
+			showNextBlock(firstCallWarrantyNumberYes);
 			break;
 		case 'first-call__warrantynumberno-lessyear':
-			showBlock(firstCallDeffect);
+			showNextBlock(firstCallDeffect);
 			break;
 		case 'first-call__warrantynumbernoDNS-continue':
-			showBlock(firstCallDeffect);
+			showNextBlock(firstCallDeffect);
 			break;
 
 		// гарантийный ремонт - поиск чека
 		case 'warranty__bill-have':
-			showBlock(warrantyBillHave);
+			showNextBlock(warrantyBillHave);
 			break;
 		case 'warranty__bill-havenot':
-			showBlock(warrantyBillHaveNot);
+			showNextBlock(warrantyBillHaveNot);
 			break;
 		case 'warranty__bill-havedata':
-			showBlock(warrantyBillHaveData);
+			showNextBlock(warrantyBillHaveData);
 			break;
 		case 'warranty__bill-havenotdata':
-			showBlock(warrantyBillHaveNotData);
+			showNextBlock(warrantyBillHaveNotData);
 			break;
 		case 'warranty__billhavedata-product':
-			showBlock(firstCallDeffect);
+			showNextBlock(firstCallDeffect);
 			break;
 		case 'warranty__billhavedata-productnot':
-			showBlock(warrantyBillWrongData);
+			showNextBlock(warrantyBillWrongData);
 			break;
 		case 'warranty__billhavedata-searchinstruction':
-			showBlock(warrantyBillInstruction);
+			showNextBlock(warrantyBillInstruction);
 			break;
 		case 'warranty__billhave-product':
-			showBlock(firstCallDeffect);
+			showNextBlock(firstCallDeffect);
 			break;
 		case 'warranty__billhave-searchinstruction':
-			showBlock(warrantyBillInstruction);
+			showNextBlock(warrantyBillInstruction);
 			break;
 		case 'warranty__billinstruction-product':
-			showBlock(firstCallDeffect);
+			showNextBlock(firstCallDeffect);
 			break;
 		case 'warranty__billinstruction-productnot':
-			showBlock(warrantyBillWrongData);
+			showNextBlock(warrantyBillWrongData);
 			break;
 
 		// первичное обращение - платный ремонт 
 		case 'first-call__paidmodel-continue':
-			showBlock(firstCallDeffect);
+			showNextBlock(firstCallDeffect);
 			break;
 
 		// первичное обращение - описание деффекта
 		case 'first-call__deffect-continue':
-			showBlock(firstCallFrequency);
+			showNextBlock(firstCallFrequency);
 			break;
 		case 'first-call__frequency-continue':
-			showBlock(firstCallLong);
+			showNextBlock(firstCallLong);
 			break;
 		case 'first-call__long-continue':
-			showBlock(firstCallConfirmation);
+			showNextBlock(firstCallConfirmation);
 			break;
 		case 'first-call__confirmation-yes':
-			showBlock(ProblemDirectory);
+			showNextBlock(ProblemDirectory);
 			break;
 		case 'first-call__confirmation-no':
-			showBlock(firstCallAddQuestion);
+			showNextBlock(firstCallAddQuestion);
 			break;
 		case 'first-call__addquestion-continue':
-			showBlock(firstCallAfterAddQuestion);
+			showNextBlock(firstCallAfterAddQuestion);
 			break;	
 		case 'first-call__afteraddquestion-continue':
-			showBlock(ProblemDirectory);
+			showNextBlock(ProblemDirectory);
 			break;
 
 		// справочник неисправностей
 		case 'problemdirectory-stovebut':
-			showBlock(ProblemDirectoryStove);
+			showNextBlock(ProblemDirectoryStove);
 			break;
 		case 'problemdirectory-conditionbut':
-			showBlock(ProblemDirectoryCondition);
+			showNextBlock(ProblemDirectoryCondition);
 			break;
 		case 'problemdirectory-refrigeratorbut':
-			showBlock(ProblemDirectoryRefrigerator);
+			showNextBlock(ProblemDirectoryRefrigerator);
 			break;
 		case 'problemdirectory-washerbut':
-			showBlock(ProblemDirectoryWasher);
+			showNextBlock(ProblemDirectoryWasher);
 			break;
 		case 'problemdirectory-ovenbut':
-			showBlock(ProblemDirectoryOven);
+			showNextBlock(ProblemDirectoryOven);
 			break;
 		case 'problemdirectory-hoodbut':
-			showBlock(ProblemDirectoryHood);
+			showNextBlock(ProblemDirectoryHood);
 			break;
 		case 'problemdirectory-dishwasherbut':
-			showBlock(ProblemDirectoryDishwasher);
+			showNextBlock(ProblemDirectoryDishwasher);
 			break;
 		case 'problemdirectory-gasbut':
-			showBlock(ProblemDirectoryGas);
+			showNextBlock(ProblemDirectoryGas);
 			break;
 
 		// электрическая поверхность
 		case 'problemdirectory__stove-firstvariantbut':
-			showBlock(StoveFirstVariant);
+			showNextBlock(StoveFirstVariant);
 			break;
 		case 'problemdirectory__stove-secondvariantbut':
-			showBlock(StoveSecondVariant);
+			showNextBlock(StoveSecondVariant);
 			break;
 		case 'problemdirectory__stove-thirdvariantbut':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		// электрическая поверхность - не включается
-		case 'stove__firstvariant-yes':
-			showBlock(StoveFirstVariantYes);
-			break;
-		case 'stove__firstvariant-no':
-			showBlock(StoveFirstVariantNo);
-			break;
-		case 'stove__firstvariantyes-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		case 'stove__firstvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// электрическая поверхность - пятна на стекле
-		case 'stove__secondvariant-yes':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		case 'stove__secondvariant-no':
-			showBlock(StoveSecondVariantNo);
-			break;
-		case 'stove__secondvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// кондиционер
 		case 'problemdirectory__condition-firstvariantbut':
-			showBlock(ConditionFirstVariant);
+			showNextBlock(ConditionFirstVariant);
 			break;
 		case 'problemdirectory__condition-secondvariantbut':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		// кондиционер - капает вода из корпуса
-		case 'condition__firstvariant-first':
-			showBlock(ConditionFirstVariantFirst);
-			break;
-		case 'condition__firstvariant-second':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		case 'condition__firstvariantfirst-continue':
-			showBlock(ProblemDirectoryAskResolve);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// холодильник
 		case 'problemdirectory__refrigerator-firstvariantbut':
-			showBlock(RefrigeratorFirstVariant);
+			showNextBlock(RefrigeratorFirstVariant);
 			break;
 		case 'problemdirectory__refrigerator-secondvariantbut':
-			showBlock(RefrigeratorSecondVariant);
+			showNextBlock(RefrigeratorSecondVariant);
 			break;
 		case 'problemdirectory__refrigerator-thirdvariantbut':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		// холодильник - греются стенки
-		case 'refrigerator__firstvariant-continue':
-			showBlock(RefrigeratorResolve);
-			break;
-		// холодильник - небольшой слой инея
-		case 'refrigerator__secondvariant-continue':
-			showBlock(RefrigeratorResolve);
-			break;
-		// холодильник - завершение 
-		case 'refrigerator__resolve-no':
-			showBlock(ProblemDirectoryResolved);
-			break;
-		case 'refrigerator__resolve-yes':
-			showBlock(ProblemDirectoryNeedMaster);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// стиральная машина
 		case 'problemdirectory__washer-firstvariantbut':
-			showBlock(WasherFirstVariant);
+			showNextBlock(WasherFirstVariant);
 			break;
 		case 'problemdirectory__washer-secondvariantbut':
-			showBlock(WasherSecondVariant);
+			showNextBlock(WasherSecondVariant);
 			break;
 		case 'problemdirectory__washer-thirdvariantbut':
-			showBlock(WasherThirdVariant);
+			showNextBlock(WasherThirdVariant);
 			break;
 		case 'problemdirectory__washer-fourthvariantbut':
-			showBlock(WasherFourthVariant);
+			showNextBlock(WasherFourthVariant);
 			break;
 		case 'problemdirectory__washer-fifthvariantbut':
-			showBlock(WasherFifthVariant);
+			showNextBlock(WasherFifthVariant);
 			break;
 		case 'problemdirectory__washer-sixthvariantbut':
-			showBlock(WasherSixthVariant);
+			showNextBlock(WasherSixthVariant);
 			break;
 		case 'problemdirectory__washer-seventhvariantbut':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		// стиральная машина - течет/образуется много пены
-		case 'washer__firstvariant-yes':
-			showBlock(WasherFirstVariantYes);
-			break;
-		case 'washer__firstvariant-no':
-			showBlock(WasherFirstVariantNo);
-			break;
-		case 'washer__firstvariantyes-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		case 'washer__firstvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// стиральная машина - вода долго набирается/самослив/ошибка "нет воды"
-		case 'washer__secondvariant-yes':
-			showBlock(WasherSecondVariantYes);
-			break;
-		case 'washer__secondvariant-no':
-			showBlock(WasherSecondVariantNo);
-			break;
-		case 'washer__secondvariantyes-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		case 'washer__secondvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// стиральная машина - не включается стиральная машина
-		case 'washer__thirdvariant-yes':
-			showBlock(WasherThirdVariantYes);
-			break;
-		case 'washer__thirdvariant-no':
-			showBlock(WasherThirdVariantNo);
-			break;
-		case 'washer__thirdvariantyes-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		case 'washer__thirdvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// стиральная машина - не отжимает/не сливает воду
-		case 'washer__fourthvariant-yes':
-			showBlock(WasherFourthVariantYes);
-			break;
-		case 'washer__fourthvariant-no':
-			showBlock(WasherFourthVariantNo);
-			break;
-		case 'washer__fourthvariantyes-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		case 'washer__fourthvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// стиральная машина - ошибка H2O/ не заливает воду
-		case 'washer__fivethvariant-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// стиральная машина - сильная вибрация
-		case 'washer__sixthvariant-continue':
-			showBlock(ProblemDirectoryAskResolve);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// духовой шкаф
 		case 'problemdirectory__oven-firstvariantbut':
-			showBlock(OvenFirstVariant);
+			showNextBlock(OvenFirstVariant);
 			break;
 		case 'problemdirectory__oven-secondvariantbut':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		// духовой шкаф - во время работы выключается аппарт
-		case 'oven__firstvariant-yes':
-			showBlock(OvenFirstVariantYes);
-			break;
-		case 'oven__firstvariant-no':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		case 'oven__firstvariantyes-continue':
-			showBlock(ProblemDirectoryAskResolve);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// вытяжка
 		case 'problemdirectory__hood-firstvariantbut':
-			showBlock(HoodFirstVariant);
+			showNextBlock(HoodFirstVariant);
 			break;
 		case 'problemdirectory__hood-secondvariantbut':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		// вытяжка - плохая тяга
-		case 'hood__firstvariant-yes':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		case 'hood__firstvariant-no':
-			showBlock(HoodFirstVariantNo);
-			break;
-		case 'hood__firstvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// посудомоечная машина
 		case 'problemdirectory__dishwasher-firstvariantbut':
-			showBlock(DishwasherFirstVariant);
+			showNextBlock(DishwasherFirstVariant);
 			break;
 		case 'problemdirectory__dishwasher-secondvariantbut':
-			showBlock(DishwasherSecondVariant);
+			showNextBlock(DishwasherSecondVariant);
 			break;
 		case 'problemdirectory__dishwasher-thirdvariantbut':
-			showBlock(DishwasherThirdVariant);
+			showNextBlock(DishwasherThirdVariant);
 			break;
 		case 'problemdirectory__dishwasher-fourthdvariantbut':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		// посудомоечная машина - не сливает воду/не моет посуду
-		case 'dishwasher__firstvariant-yes':
-			showBlock(DishwasherFirstVariantYes);
-			break;
-		case 'dishwasher__firstvariant-no':
-			showBlock(DishwasherFirstVariantNo);
-			break;
-		case 'oven__firstvariantyes-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		case 'dishwasher__firstvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// посудомоечная машина - не набирает воду
-		case 'dishwasher__secondvariant-yes':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		case 'dishwasher__secondvariant-no':
-			showBlock(DishwasherSecondVariantNo);
-			break;
-		case 'dishwasher__secondvariantno-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// посудомоечная машина - не выбирает режим мойки
-		case 'dishwasher__thirdvariant-yes':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		case 'dishwasher__thirdvariant-no':
-			showBlock(DishwasherThirdVariantNo);
-			break;
-		case 'dishwasher__thirdvariantno-continue':
-			showBlock(DishwasherThirdVariantGoodBye);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// газовая поверхность
 		case 'problemdirectory__gas-firstvariantbut':
-			showBlock(GasFirstVariant);
+			showNextBlock(GasFirstVariant);
 			break;
 		case 'problemdirectory__gas-secondvariantbut':
-			showBlock(GasSecondVariant);
+			showNextBlock(GasSecondVariant);
 			break;
 		case 'problemdirectory__gas-thirdvariantbut':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		// газовая поверхность - проблема с подключением газового шланга
-		case 'gas__firstvariant-continue':
-			showBlock(ProblemDirectoryAskResolve);
-			break;
-		// газовая поверхность - во время работы выключается аппарт
-		case 'gas__secondvariant-yes':
-			showBlock(GasSecondVariantYes);
-			break;
-		case 'gas__secondvariant-no':
-			showBlock(ProblemDirectoryNeedMaster);
-			break;
-		case 'gas__secondvariantyes-continue':
-			showBlock(ProblemDirectoryAskResolve);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
 		// завершение регистрации
 		case 'problemdirectory__askresolve-yes':
-			showBlock(ProblemDirectoryResolved);
+			showNextBlock(ProblemDirectoryResolved);
 			break;
 		case 'problemdirectory__askresolve-no':
-			showBlock(ProblemDirectoryNeedMaster);
+			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 		case 'problemdirectory__needmaster-continue':
 			if (isASC) {
-				showBlock(ProblemDirectoryASCNotResolved);
+				showNextBlock(ProblemDirectoryASCNotResolved);
 			} else if (isNotASC) {
-				showBlock(warrantyNotASCBill);
+				showNextBlock(warrantyNotASCBill);
 			}
 			else {
-				showBlock(ProblemDirectoryNotResolved);
+				showNextBlock(ProblemDirectoryNotResolved);
 			}
 			break;
 
 		// гарантийный ремонт - поиск чека
 		case 'warrantynotASC__bill-have':
-			showBlock(warrantyNotASCBillHave);
+			showNextBlock(warrantyNotASCBillHave);
 			break;
 		case 'warrantynotASC__bill-havenot':
-			showBlock(warrantyNotASCBillHaveNot);
+			showNextBlock(warrantyNotASCBillHaveNot);
 			break;
 		case 'warrantynotASC__bill-havedata':
-			showBlock(warrantyNotASCBillHaveData);
+			showNextBlock(warrantyNotASCBillHaveData);
 			break;
 		case 'warrantynotASC__bill-havenotdata':
-			showBlock(warrantyNotASCBillHaveNotData);
+			showNextBlock(warrantyNotASCBillHaveNotData);
 			break;
 		case 'warrantnotASCy__billhavedata-searchinstruction':
-			showBlock(warrantyNotASCBillInstruction);
+			showNextBlock(warrantyNotASCBillInstruction);
 			break;
 		case 'warrantynotASC__billhavedata-product':
-			showBlock(ProblemDirectoryNotResolved);
+			showNextBlock(ProblemDirectoryNotResolved);
 			break;
 		case 'warrantynotASC__billhavedata-productnot':
-			showBlock(warrantyNotASCBillWrongData);
+			showNextBlock(warrantyNotASCBillWrongData);
 			break;
 		case 'warrantynotASC__billhavedata-searchinstruction':
-			showBlock(warrantyNotASCBillInstruction);
+			showNextBlock(warrantyNotASCBillInstruction);
 			break;
 		case 'warrantnotASC__billhavedata-searchinstruction':
-			showBlock(warrantyNotASCBillInstruction);
+			showNextBlock(warrantyNotASCBillInstruction);
 			break;
 		case 'warrantynotASC__billhave-product':
-			showBlock(ProblemDirectoryNotResolved);
+			showNextBlock(ProblemDirectoryNotResolved);
 			break;
 		case 'warrantynotASC__billhave-searchinstruction':
-			showBlock(warrantyNotASCBillInstruction);
+			showNextBlock(warrantyNotASCBillInstruction);
 			break;
 		case 'warrantynotASC__billinstruction-product':
-			showBlock(ProblemDirectoryNotResolved);
+			showNextBlock(ProblemDirectoryNotResolved);
 			break;
 		case 'warrantynotASC__billinstruction-productnot':
-			showBlock(warrantyNotASCBillWrongData);
+			showNextBlock(warrantyNotASCBillWrongData);
 			break;
 
 		// проблема решена по телефону
 		case 'problemdirectory__resolved-yes':
-			showBlock(ProblemDirectoryResolvedQuest);
+			showNextBlock(ProblemDirectoryResolvedQuest);
 			break;
 		case 'problemdirectory__resolved-no':
-			showBlock(ProblemDirectoryResolvedGoodBye);
+			showNextBlock(ProblemDirectoryResolvedGoodBye);
 			break;
 		case 'problemdirectory__resolvedquest-continue':
-			showBlock(ProblemDirectoryResolvedGoodBye);
+			showNextBlock(ProblemDirectoryResolvedGoodBye);
 			break;
 
 		// проблема не решена, требуется выезд мастера
 		case 'problemdirectory__notresolved-continue':
-			showBlock(ProblemDirectoryNotResolvedTime);
+			showNextBlock(ProblemDirectoryNotResolvedTime);
 			break;
 		case 'problemdirectory__notresolvedtime-yes':
-			showBlock(ProblemDirectoryNotResolvedGoodBye);
+			showNextBlock(ProblemDirectoryNotResolvedGoodBye);
 			break;
 		case 'problemdirectory__notresolvedtime-no':
-			showBlock(ProblemDirectoryNotResolvedNewTime);
+			showNextBlock(ProblemDirectoryNotResolvedNewTime);
 			break;
 		case 'problemdirectory__notresolvednewtime-continue':
-			showBlock(ProblemDirectoryNotResolvedGoodBye);
+			showNextBlock(ProblemDirectoryNotResolvedGoodBye);
 			break;
 
 		// не в ДНС - вызов мастера
 		case 'problemdirectory__notDNSnotresolved-yes':
-			showBlock(ProblemDirectoryNotDNSNotResolvedYes);
+			showNextBlock(ProblemDirectoryNotDNSNotResolvedYes);
 			break;
 		case 'problemdirectory__notDNSnotresolved-no':
-			showBlock(ProblemDirectoryNotDNSNotResolvedGoodBye);
+			showNextBlock(ProblemDirectoryNotDNSNotResolvedGoodBye);
 			break;
 		case 'problemdirectory__notDNSnotresolvedyes-continue':
-			showBlock(ProblemDirectoryNotDNSNotResolvedGoodBye);
+			showNextBlock(ProblemDirectoryNotDNSNotResolvedGoodBye);
 			break;
 
 		// АСЦ - вызов мастера
 		case 'problemdirectory__ASCnotresolved-yes':
-			showBlock(ProblemDirectoryASCNotResolvedYes);
+			showNextBlock(ProblemDirectoryASCNotResolvedYes);
 			break;
 		case 'problemdirectory__ASCnotresolved-no':
-			showBlock(ProblemDirectoryASCNotResolvedNo);
+			showNextBlock(ProblemDirectoryASCNotResolvedNo);
 			break;
 		case 'problemdirectory__ASCnotresolvedyes-continue':
-			showBlock(ProblemDirectoryASCNotResolvedQuest);
+			showNextBlock(ProblemDirectoryASCNotResolvedQuest);
 			break;
 		case 'problemdirectory__ASCnotresolvedno-continue':
-			showBlock(ProblemDirectoryASCNotResolvedQuest);
+			showNextBlock(ProblemDirectoryASCNotResolvedQuest);
 			break;
 		case 'problemdirectory__ASCnotresolvedquest-yes':
-			showBlock(ProblemDirectoryASCNotResolvedQuestYes);
+			showNextBlock(ProblemDirectoryASCNotResolvedQuestYes);
 			break;
 		case 'problemdirectory__ASCnotresolvedquest-no':
-			showBlock(ProblemDirectoryASCNotResolvedGoodBye);
+			showNextBlock(ProblemDirectoryASCNotResolvedGoodBye);
 			break;
 		case 'problemdirectory__ASCnotresolvedquestyes-continue':
-			showBlock(ProblemDirectoryASCNotResolvedGoodBye);
+			showNextBlock(ProblemDirectoryASCNotResolvedGoodBye);
 			break;
 
 		// кнопка домой
 		case 'home':
 			goStart();
 			break;
+		// кнопка назад
+		case 'back':
+			goBack();
+			break;
 	}
+}
+
+// метод для вывода следующего блока
+function showNextBlock(newBlock) {
+	blocks.push(currentBlock);
+	hideBlock(currentBlock);
+	currentBlock = newBlock;
+	showBlock(currentBlock);
+//	javascript:window.scrollTo(0,document.body.scrollHeight)
+}
+
+// метод для отображения блока
+function showBlock(block) {
+	block.style.display = 'flex';
 }
 
 // метод для сокрытия блока
@@ -839,26 +629,14 @@ function hideBlock(block) {
 	block.style.display = 'none';
 }
 
-// метод для отображения блока
-function showBlock(block) {
-	block.style.display = 'flex';
-	javascript:window.scrollTo(0,document.body.scrollHeight)
-}
-
 // метод для отображения кнопки блока
 function showButton(button) {
 	button.style.display = 'inline-block';
-	javascript:window.scrollTo(0,document.body.scrollHeight)
+//	javascript:window.scrollTo(0,document.body.scrollHeight)
 }
 
 // метод для сброса странички до стартовых условий
 function goStart() {
-	let elements = document.querySelectorAll('.notgreeting');
-
-	for (let elem of elements) {
-		hideBlock(elem);
-	}
-
 	isRecall = false;
 	isTimeTransfer = false;
 	isFirstCall = false;
@@ -867,4 +645,33 @@ function goStart() {
 	isDNSClient = false;
 	isASC = false;
 	isNotASC = false;
+
+	hideBlock(currentBlock);
+	currentBlock = greetingAppeal;
+	showBlock(currentBlock);
+	blocks = [];
+}
+
+function goBack() {
+	hideBlock(currentBlock);
+	if (currentBlock == generalCheckingGreeting) {
+		isRecall = false;
+		isTimeTransfer = false;
+		isFirstCall = false;
+	}
+	if (currentBlock == firstCallCheckingBrand){
+		isWarranty = false;
+		isPaid = false;
+	}
+	if (currentBlock == firstCallWarrantyNumber){
+		isDNSClient = false;
+		isNotASC = false;
+	}
+	if (currentBlock == warrantyBill) {
+		isDNSClient = false;
+		isASC = false;
+	}
+	currentBlock = blocks[blocks.length - 1];
+	blocks.pop();
+	showBlock(currentBlock);
 }

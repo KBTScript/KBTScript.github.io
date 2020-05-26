@@ -13,13 +13,13 @@
 			<section>
 				<!-- Вступительный блок -->
 				<div class='blocks' id='greeting__appeal'>
-					<button class='greeting__button' id='greeting__appeal-recall' class='alone-button'>Согласование визита мастера повторно</button>
-					<button class='greeting__button' id='greeting__appeal-firstcall' class='alone-button'>Обработка первичного обращения</button>
-					<button class='greeting__button' id='greeting__appeal-timetransfer' class='alone-button'>Перенос времени визита мастера<br>(мастер задерживается)</button>
+					<button class='greeting__button alone-button' id='greeting__appeal-recall'>Согласование визита мастера повторно</button>
+					<button class='greeting__button alone-button' id='greeting__appeal-firstcall'>Обработка первичного обращения</button>
+					<button class='greeting__button right-button' id='greeting__appeal-timetransfer'>Перенос времени визита мастера<br>(мастер задерживается)</button>
 				</div>
 
 				<!-- Общий блок -->
-				<div class='blocks hide notgreeting' id='general-checking__greeting'>
+				<div class='blocks hide ' id='general-checking__greeting'>
 					<p>
 						Добрый день! Меня зовут (называем свое имя), компания DNS!<br>
 						(называем ФИО клиента) вы оставляли заявку на выездной ремонт<br>(называем фирму и название техники) все верно?
@@ -29,21 +29,21 @@
 						<button id='general-checking__greeting-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='general-checking__goodbye-mistake'>
+				<div class='blocks hide ' id='general-checking__goodbye-mistake'>
 					<p>
 						Прошу прощение за беспокойство, наверное, произошла ошибка в наборе номера. До свидание!
 					</p>
 				</div>
 
 				<!-- Блок повторного визита мастера -->
-				<div class='blocks hide notgreeting' id='recall__clarification'>
+				<div class='blocks hide ' id='recall__clarification'>
 					<p>
 						Я вас понял(ла). Давайте сверим данные,скажите, пожалуйста,<br> 
 						полное ФИО и адрес проживания.
 					</p>
 					<button id='recall__clarification-continue' class='alone-button''>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='recall__mastertime'>
+				<div class='blocks hide ' id='recall__mastertime'>
 					<p>
 						Большое спасибо! Подскажите, будет удобно если мастер приедет к<br>
 						вам (называем дату и время)?
@@ -53,13 +53,13 @@
 						<button id='recall__mastertime-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='recall__newtime'>
+				<div class='blocks hide ' id='recall__newtime'>
 					<p>
 						Подскажите, пожалуйста, какое время для вас будет удобным?
 					</p>
 					<button id='recall__newtime-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='recall__goodbye'>
+				<div class='blocks hide ' id='recall__goodbye'>
 					<p>
 						Хорошо, (называем ФИО клиента) назначаем визит специалиста на<br>
 						(проговариваем дату и время) по адресу (проговариваем адрем) для<br>выездной ремонт (называем фиму и название техники) все верно?<br>
@@ -68,7 +68,7 @@
 				</div>
 
 				<!-- Блок переноса времени мастера -->
-				<div class='blocks hide notgreeting' id='time-transfer__newtime'>
+				<div class='blocks hide ' id='time-transfer__newtime'>
 					<p>
 						Прошу прощения за сложившуюся ситуацию, к сожалению, мастер не<br> может приехать в назначенную время, так как задерживается на<br> предыдущих заказах. В связи с этим, подскажите удобно ли было<br> 
 						бы принять специалиста (называем дату и время)?<br>
@@ -79,7 +79,7 @@
 					</div>
 					<button id='time-transfer__newtime-negative' class='alone-button'>Абонент негативно настроен</button>
 				</div>
-				<div class='blocks hide notgreeting' id='time-transfer__negative'>
+				<div class='blocks hide ' id='time-transfer__negative'>
 					<h2>
 						Выслушиваем клиента и не перебиваем.
 					</h2>
@@ -93,19 +93,19 @@
 						<button id='time-transfer__negative-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='time-transfer__clienttime'>
+				<div class='blocks hide ' id='time-transfer__clienttime'>
 					<p>
 						Подскажите, пожалуйста, какое время для вас будет удобным?
 					</p>
 					<button id='time-transfer__clienttime-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='time-transfer__ourtime'>
+				<div class='blocks hide ' id='time-transfer__ourtime'>
 					<p>
 						Спасибо за ответ! Давайте сверим данные, скажите, пожалуйста,  полное ФИО и адрес проживания.
 					</p>
 					<button id='time-transfer__ourtime-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='time-transfer__clarification'>
+				<div class='blocks hide ' id='time-transfer__clarification'>
 					<p>
 						Хорошо, (называем ФИО клиента) назначаем визит специалиста на<br>  
 						(проговариваем дату и время) по адресу (проговариваем адрем)для <br> 
@@ -117,20 +117,20 @@
 						<button id='time-transfer__clarification-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='time-transfer__question'>
+				<div class='blocks hide ' id='time-transfer__question'>
 					<p>
 						Отвечаем на вопросы.
 					</p>
 					<button id='time-transfer__question-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='time-transfer__goodbye'>
+				<div class='blocks hide ' id='time-transfer__goodbye'>
 					<p>
 						В таком случае, ожидайте мастера, всего доброго, до свидания!
 					</p>
 				</div>
 
 				<!-- Первичное обращение -->
-				<div class='blocks hide notgreeting' id='first-call__checking'>
+				<div class='blocks hide ' id='first-call__checking'>
 					<p>
 						Для формирования заявки на выезд мастера, мне нужно уточнить информацию.<br>
 						Подскажите, пожалуйста, у вас обращение по гарантии или это платный ремонт?<br>
@@ -140,7 +140,7 @@
 						<button id='first-call__checking-paid' class='right-button'>Платный ремонт</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='first-call__checkingbrand'>
+				<div class='blocks hide ' id='first-call__checkingbrand'>
 					<p>
 						Большое спасибо! С каким устройством обращаетесь?<br>
 						(необходимо узнать бренд и изделие)
@@ -149,7 +149,7 @@
 				</div>
 
 				<!-- Гарантийный ремонт -->
-				<div class='blocks hide notgreeting' id='first-call__warrantyWhereBuy'>
+				<div class='blocks hide ' id='first-call__warrantyWhereBuy'>
 					<p>
 						(Называем бренд и изделие) приобретали в магазине ДНС?
 					</p>
@@ -160,7 +160,7 @@
 				</div>
 
 				<!-- Гарантийны ремонт - Изделие приобретено в ДНС-->
-				<div class='blocks hide notgreeting' id='first-call__warrantyDNSClient'>
+				<div class='blocks hide ' id='first-call__warrantyDNSClient'>
 					<p>
 						Выберите один из вариантов.
 					</p>
@@ -171,7 +171,7 @@
 				</div>
 
 				<!-- Гарантийны ремонт - Изделие приобретено не в ДНС/ Изделие приобретено в ДНС (нет авторизации/ проверка качества) -->
-				<div class='blocks hide notgreeting' id='first-call__warrantynumber'>
+				<div class='blocks hide ' id='first-call__warrantynumber'>
 					<p>
 						Спасибо за предоставленную информацию. Для более комфотрного и<br> оперативного устранения поломки, вы можете самостоятельно обратииться<br> в (называем фиирму изготовитель) для составления заявки по устранению<br> неполадки. Подсказать вам номер по которому можете связаться?
 					</p>
@@ -182,7 +182,7 @@
 				</div>
 
 				<!-- Гарантийны ремонт - Изделие приобретено в ДНС - нет авторизации/ проверка качества -->
-				<div class='blocks hide notgreeting' id='first-call__warrantynumbernoDNS'>
+				<div class='blocks hide ' id='first-call__warrantynumbernoDNS'>
 					<p>
 						Хорошо, давайте попробуем устранить неполадку удаленно.
 					</p>
@@ -190,7 +190,7 @@
 				</div>
 
 				<!-- Гарантийны ремонт - Изделие приобретено не в ДНС -->
-				<div class='blocks hide notgreeting' id='first-call__warrantynumbernonotDNS'>
+				<div class='blocks hide ' id='first-call__warrantynumbernonotDNS'>
 					<p>
 						(ИО) подскажите, Какого числа был приобретен товар?
 					</p>
@@ -201,7 +201,7 @@
 				</div>
 
 				<!-- Гарантийны ремонт - Изделие приобретено не в ДНС/ Изделие приобретено в ДНС (нет авторизации)/ Проверка качества -->
-				<div class='blocks hide notgreeting' id='first-call__warrantynumberyes'>
+				<div class='blocks hide ' id='first-call__warrantynumberyes'>
 					<p>
 						Hansa__________________8 (800) 700 3661<br> 
 						Ariston_________________8 (423) 249 1301<br> 
@@ -219,7 +219,7 @@
 				</div>
 
 				<!-- Гарантийный ремонт - поиск чека -->
-				<div class='blocks hide notgreeting' id='warranty__bill'>
+				<div class='blocks hide ' id='warranty__bill'>
 					<p>
 						(Имя Отчество клиента), назовите, пожалуйста, номер чека.<br> Номер находится в верхнем правом углу, он состоит из Х цифр.
 					</p>
@@ -228,7 +228,7 @@
 						<button id='warranty__bill-havenot' class='right-button'>Чек не в наличии</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='warranty__billhavenot'>
+				<div class='blocks hide ' id='warranty__billhavenot'>
 					<p>
 						Тогда подскажите, пожалуйста, бренд; модель товара; дату и место покупки?
 					</p>
@@ -237,12 +237,12 @@
 						<button id='warranty__bill-havenotdata' class='right-button'>Клиент не назвал данные</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='warranty__billhavenotdata'>
+				<div class='blocks hide ' id='warranty__billhavenotdata'>
 					<p>
 						К сожалению мне необходимы эти данные для формирования заказа. Перезвоните пожалуйста, когда данные будут найдены.
 					</p>
 				</div>
-				<div class='blocks hide notgreeting' id='warranty__billhavedata'>
+				<div class='blocks hide ' id='warranty__billhavedata'>
 					<p>
 						Большое спасибо за информацию! Мне потребуется несколько минут, чтобы найти устройство в базе, ожидайте, пожалуйста, на линии!
 					</p>
@@ -252,7 +252,7 @@
 					</div>
 					<button id='warranty__billhavedata-searchinstruction' class='alone-button'>Не знаю как искать товар</button>
 				</div>
-				<div class='blocks hide notgreeting' id='warranty__billhave'>
+				<div class='blocks hide ' id='warranty__billhave'>
 					<p>
 						Большое спасибо! Ожидайте, пожалуйста, на линии мне потребуется несколько минут, чтобы найти ваш товар в базе данных. <i>Ставим клиента на удержание. Ищем товар в 1С.</i>
 					</p>
@@ -261,7 +261,7 @@
 						<button id='warranty__billhave-searchinstruction' class='right-button'>Не знаю как искать товар</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='warranty__billinstruction'>
+				<div class='blocks hide ' id='warranty__billinstruction'>
 					<p>
 						Инструкция по поиску товара в базе.
 					</p>
@@ -270,14 +270,14 @@
 						<button id='warranty__billinstruction-productnot' class='right-button'>Товар не найден</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='warranty__billwrongdata'>
+				<div class='blocks hide ' id='warranty__billwrongdata'>
 					<p>
 						(Имя Отчество клиента), к сожалению, по дате и месту покупке устройства, которые вы назвали не получилось найти.
 					</p>
 				</div>
 
 				<!-- Платный ремонт - полное название модели -->
-				<div class='blocks hide notgreeting' id='first-call__paidmodel'>
+				<div class='blocks hide ' id='first-call__paidmodel'>
 					<p>
 						Хорошо,(ИО) необходимо уточнить полное название модели.
 					</p>
@@ -285,25 +285,25 @@
 				</div>
 
 				<!-- Для всех ремонтов описание деффекта -->
-				<div class='blocks hide notgreeting' id='first-call__deffect'>
+				<div class='blocks hide ' id='first-call__deffect'>
 					<p>
 						Подскажите, пожалуйста, как именно проявляется дефект?
 					</p>
 					<button id='first-call__deffect-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='first-call__frequency'>
+				<div class='blocks hide ' id='first-call__frequency'>
 					<p>
 						Большое спасибо за ответ, а как часто проявляется<br> неисправность?
 					</p>
 					<button id='first-call__frequency-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='first-call__long'>
+				<div class='blocks hide ' id='first-call__long'>
 					<p>
 						Я вас понял(ла), (ИО абонента), как давно появилась неисправность?
 					</p>
 					<button id='first-call__long-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='first-call__confirmation'>
+				<div class='blocks hide ' id='first-call__confirmation'>
 					<p>
 						Правильно понимаю, возникли проблемы с (описываем дефект) все верно?
 					</p>
@@ -312,13 +312,13 @@
 						<button id='first-call__confirmation-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='first-call__addquestion'>
+				<div class='blocks hide ' id='first-call__addquestion'>
 					<p>
 						Задаем уточняющий вопрос.
 					</p>
 					<button id='first-call__addquestion-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='first-call__afteraddquestion'>
+				<div class='blocks hide ' id='first-call__afteraddquestion'>
 					<p>
 						Хорошо, я вас понял.
 					</p>
@@ -326,7 +326,7 @@
 				</div>
 
 				<!-- Справочник неисправностей -->
-				<div class='blocks hide notgreeting' id='problemdirectory'>
+				<div class='blocks hide ' id='problemdirectory'>
 					<h2>Выберите изделие</h2>
 					<div>
 						<button id='problemdirectory-stovebut'>Электрическая поверхность</button>
@@ -347,114 +347,30 @@
 				</div>
 
 				<!-- Электрическая поверхность -->
-				<div class='blocks hide notgreeting' id='problemdirectory__stove'>
+				<div class='blocks hide ' id='problemdirectory__stove'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__stove-firstvariantbut' class='alone-button'>Не включается</button>
 					<button id='problemdirectory__stove-secondvariantbut' class='alone-button'>Пятна на стекле</button>
 					<button id='problemdirectory__stove-thirdvariantbut' class='alone-button'>Другое</button>
 				</div>
-
-				<!-- Электрическая поверхность - Не включается -->
-				<div class='blocks hide notgreeting' id='stove__firstvariant'>
-					<p>
-						Подскажите, пробовали выставить время на электронном табло?
-					</p>
-					<div>
-						<button id='stove__firstvariant-yes'>Да</button>
-						<button id='stove__firstvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='stove__firstvariantyes'>
-					<p>
-						В таком случем необходимо перевести в ручной режим.
-					</p>
-					<button id='stove__firstvariantyes-continue' class='alone-button'>Далее</button>
-				</div>
-				<div class='blocks hide notgreeting' id='stove__firstvariantno'>
-					<p>
-						В таком случае требуется выставить время на электронном <br> табло, либо перевести в ручной режим приготовления.
-					</p>
-					<button id='stove__firstvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Электрическая поверхность - Пятна на стекле -->
-				<div class='blocks hide notgreeting' id='stove__secondvariant'>
-					<p>
-						Подскажите, пробовали устранить загрязнения?
-					</p>
-					<div>
-						<button id='stove__secondvariant-yes'>Да</button>
-						<button id='stove__secondvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='stove__secondvariantno'>
-					<p>
-						В таком случае требуется устранить загрязнения c помошью<br>специальных чистящих средств
-					</p>
-					<button id='stove__secondvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
+				
 				<!-- Кондиционер -->
-				<div class='blocks hide notgreeting' id='problemdirectory__condition'>
+				<div class='blocks hide ' id='problemdirectory__condition'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__condition-firstvariantbut' class='alone-button'>Капает вода из корпуса</button>
 					<button id='problemdirectory__condition-secondvariantbut' class='alone-button'>Другое</button>
 				</div>
 
-				<!-- Кондиционер - Капает вода из корпуса -->
-				<div class='blocks hide notgreeting' id='condition__firstvariant'>
-					<p>
-						Подскажите, когда в последний раз чистили фильтр от грязи и пыли?
-					</p>
-					<div>
-						<button id='condition__firstvariant-first'>Больше месяца</button>
-						<button id='condition__firstvariant-second' class='right-button'>Меньше месяца</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='condition__firstvariantfirst'>
-					<p>
-						Попробуйте почистить фильтр от грязи и пыли, так как загрязнение<br> фильтра нарушает циркуляуцию воздуха и из-за это могу возникать сбои.
-					</p>
-					<button id='condition__firstvariantfirst-continue' class='alone-button'>Далее</button>
-				</div>
-
 				<!-- Холодильник -->
-				<div class='blocks hide notgreeting' id='problemdirectory__refrigerator'>
+				<div class='blocks hide ' id='problemdirectory__refrigerator'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__refrigerator-firstvariantbut' class='alone-button'>Греются стенки</button>
 					<button id='problemdirectory__refrigerator-secondvariantbut' class='alone-button'>Небольшой слой инея</button>
 					<button id='problemdirectory__refrigerator-thirdvariantbut' class='alone-button'>Другое</button>
 				</div>
 
-				<!-- Холодильник - Греются стенки -->
-				<div class='blocks hide notgreeting' id='refrigerator__firstvariant'>
-					<p>
-						(ИО) повышеная температура стенок холодильника не является дефектом.
-					</p>
-					<button id='refrigerator__firstvariant-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Холодильник - Небольшой слой инея -->
-				<div class='blocks hide notgreeting' id='refrigerator__secondvariant'>
-					<p>
-						Если на задней стенке холодильника образуется небольшой слой инея,<br> который попеременно то оттаивает, то появляется снова - это совершенно<br>нормальная работа холодильника с капельной системой разморозки<br> холодильного отделения. Волноваться в данном случае не о чем.<br>
-					</p>
-					<button id='refrigerator__secondvariant-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Другое окончание для холодильника для всех вариантов -->
-				<div class='blocks hide notgreeting' id='refrigerator__resolve'>
-					<p>
-						Cкажите присутсвуют ли еще какие-нибудь неполадки у холодильника?
-					</p>
-					<div>
-						<button id='refrigerator__resolve-yes'>Да</button>
-						<button id='refrigerator__resolve-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-
 				<!-- Стиральная машина -->
-				<div class='blocks hide notgreeting' id='problemdirectory__washer'>
+				<div class='blocks hide ' id='problemdirectory__washer'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__washer-firstvariantbut' class='alone-button'>Течет/образуется много пены</button>
 					<button id='problemdirectory__washer-secondvariantbut' class='alone-button'>Вода долго набирается/самослив/Ошибка "нет воды"</button>
@@ -465,164 +381,22 @@
 					<button id='problemdirectory__washer-seventhvariantbut' class='alone-button'>Другое</button>
 				</div>
 
-				<!-- Стиральная машина - Течет/образуется много пены -->
-				<div class='blocks hide notgreeting' id='washer__firstvariant'>
-					<p>
-						(ИО) проверяли герметичность соединений шлангов?
-					</p>
-					<div>
-						<button id='washer__firstvariant-yes'>Да</button>
-						<button id='washer__firstvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='washer__firstvariantyes'>
-					<p>
-						Из за неправильно дозировки моющего средства, могу возникать подоные<br> ситуации, необходимо поменять дозировку или моющее стредство.
-					</p>
-					<button id='washer__firstvariantyes-continue' class='alone-button'>Далее</button>
-				</div>
-				<div class='blocks hide notgreeting' id='washer__firstvariantno'>
-					<p>
-						Необходимо проверить гермитичность шлангови поменять дозировку или моющее стредство
-					</p>
-					<button id='washer__firstvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Стиральная машина - Вода долго набирается/самослив/Ошибка "нет воды" -->
-				<div class='blocks hide notgreeting' id='washer__secondvariant'>
-					<p>
-						(ИО) подскажите образует ли сливной шланг петлю?
-					</p>
-					<div>
-						<button id='washer__secondvariant-yes'>Да</button>
-						<button id='washer__secondvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='washer__secondvariantyes'>
-					<p>
-						В таком случае нужно воровнять сливной шланг подвесить от пола на<br> 60-90 см и протестировать снова.
-					</p>
-					<button id='washer__secondvariantyes-continue' class='alone-button'>Далее</button>
-				</div>
-				<div class='blocks hide notgreeting' id='washer__secondvariantno'>
-					<p>
-						В таком случае нужно подвесить шланг от пола на 60-90 см и протестировать снова
-					</p>
-					<button id='washer__secondvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Стиральная машина - Не включается стиральная машина -->
-				<div class='blocks hide notgreeting' id='washer__thirdvariant'>
-					<p>
-						(ИО) подскажите Стиральная машина работае через сетевой фильтр?
-					</p>
-					<div>
-						<button id='washer__thirdvariant-yes'>Да</button>
-						<button id='washer__thirdvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='washer__thirdvariantyes'>
-					<p>
-						В таком случае попробуйте подключить машинку напрямую в розетку.
-					</p>
-					<button id='washer__thirdvariantyes-continue' class='alone-button'>Далее</button>
-				</div>
-				<div class='blocks hide notgreeting' id='washer__thirdvariantno'>
-					<p>
-						В таком случае попробуйте проверить подачу электричества, подключить к другой розетке.
-					</p>
-					<button id='washer__thirdvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Стиральная машина - Не отжимает/не сливает воду -->
-				<div class='blocks hide notgreeting' id='washer__fourthvariant'>
-					<p>
-						(ИО) подскажите Стиральная машина запускает процесс отжима белья.
-					</p>
-					<div>
-						<button id='washer__fourthvariant-yes'>Да</button>
-						<button id='washer__fourthvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='washer__fourthvariantyes'>
-					<p>
-						В таком случае нужно проверить чистый ли фильтр, нет ли загрязнения в<br> канализационной сети, переустановка сливного шланга в другой слив/ведро.
-					</p>
-					<button id='washer__fourthvariantyes-continue' class='alone-button'>Далее</button>
-				</div>
-				<div class='blocks hide notgreeting' id='washer__fourthvariantno'>
-					<p>
-						Проверить сливной фильтр на предмет засора. Поверить не передавлен ли<br> сливной шланг. Остановить программу, разложить бельё равномерно, продолжить стирку
-					</p>
-					<button id='washer__fourthvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Стиральная машина - Ошибка H2O/ не заливает воду -->
-				<div class='blocks hide notgreeting' id='washer__fifthvariant'>
-					<p>
-						(ИО)в таком случае попробуте проверкить заливной фильтр, давления,<br> поступает ли во да через кран.
-					</p>
-					<button id='washer__fivethvariant-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Стиральная машина - Сильная вибрация -->
-				<div class='blocks hide notgreeting' id='washer__sixthvariant'>
-					<p>
-						(ИО) проверьте пожалйста, возмодно не сняты транспортировочные болты. так же необходимо установить машинку по уровню на твердое основание.<br>
-					</p>
-					<button id='washer__sixthvariant-continue' class='alone-button'>Далее</button>
-				</div>
-
 				<!-- Духовой шкаф -->
-				<div class='blocks hide notgreeting' id='problemdirectory__oven'>
+				<div class='blocks hide ' id='problemdirectory__oven'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__oven-firstvariantbut' class='alone-button'>Во время работы выключается аппарат</button>
 					<button id='problemdirectory__oven-secondvariantbut' class='alone-button'>Другое</button>
 				</div>
 
-				<!-- Духовой шкаф - Во время работы выключается аппарт -->
-				<div class='blocks hide notgreeting' id='oven__firstvariant'>
-					<p>
-						Подскажите, духовой шкаф подключен к питанию через сетевой фильтр?
-					</p>
-					<div>
-						<button id='oven__firstvariant-yes'>Да</button>
-						<button id='oven__firstvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='oven__firstvariantyes'>
-					<p>
-						Попробуйте подключить прибор напрямую в розетку.
-					</p>
-					<button id='oven__firstvariantyes-continue' class='alone-button'>Далее</button>
-				</div>
-
 				<!-- Вытяжка -->
-				<div class='blocks hide notgreeting' id='problemdirectory__hood'>
+				<div class='blocks hide ' id='problemdirectory__hood'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__hood-firstvariantbut' class='alone-button'>Плохая тяга</button>
 					<button id='problemdirectory__hood-secondvariantbut' class='alone-button'>Другое</button>
 				</div>
 
-				<!-- Вытяжка - Плохая тяга -->
-				<div class='blocks hide notgreeting' id='hood__firstvariant'>
-					<p>
-						Нужно проверить фильтры жироуловителя, возможно они забились и создают<br>препятствие. Подскажите, пробовали снять фильтр (жироулавливатель) и<br> проверить тягу вытяжки?
-					</p>
-					<div>
-						<button id='hood__firstvariant-yes'>Да</button>
-						<button id='hood__firstvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='hood__firstvariantno'>
-					<p>
-						Необходимо снять фильтры и включить вытяжу, есть без фильтров вытяжка<br> работает исправно, необходимо их заменить или почитстить.
-					</p>
-					<button id='hood__firstvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
 				<!-- Посудомоечная машина -->
-				<div class='blocks hide notgreeting' id='problemdirectory__dishwasher'>
+				<div class='blocks hide ' id='problemdirectory__dishwasher'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__dishwasher-firstvariantbut' class='alone-button'>Не сливает воду/не моет посуду</button>
 					<button id='problemdirectory__dishwasher-secondvariantbut' class='alone-button'>Не набирает воду</button>
@@ -630,102 +404,16 @@
 					<button id='problemdirectory__dishwasher-fourthdvariantbut' class='alone-button'>Другое</button>
 				</div>
 
-				<!-- Посудомоечная машина - Не сливает воду/не моет посуду -->
-				<div class='blocks hide notgreeting' id='dishwasher__firstvariant'>
-					<p>
-						(ИО) подскажите проверяли правильность установки сливного шланга на наличие перегибов?
-					</p>
-					<div>
-						<button id='dishwasher__firstvariant-yes'>Да</button>
-						<button id='dishwasher__firstvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='dishwasher__firstvariantyes'>
-					<p>
-						Пожалуйста, проверте Засорение фильтра, находящегося внизу камера<br> погружения посуды. Его нужно достать, промыть и установить обратно.
-					</p>
-					<button id='oven__firstvariantyes-continue' class='alone-button'>Далее</button>
-				</div>
-				<div class='blocks hide notgreeting' id='dishwasher__firstvariantno'>
-					<p>
-						Необходимо проверить  шлаг и выровнять выровнять его.
-					</p>
-					<button id='dishwasher__firstvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Посудомоечная машина - Не набирает воду -->
-				<div class='blocks hide notgreeting' id='dishwasher__secondvariant'>
-					<p>
-						(ИО) подскажите проверяли наливной шланг на наличие перегибов.
-					</p>
-					<div>
-						<button id='dishwasher__secondvariant-yes'>Да</button>
-						<button id='dishwasher__secondvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='dishwasher__secondvariantno'>
-					<p>
-						Необходимо проверить  шлаг и выровнять выровнять его.
-					</p>
-					<button id='dishwasher__secondvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Посудомоечная машина - Не выбирает режим мойки -->
-				<div class='blocks hide notgreeting' id='dishwasher__thirdvariant'>
-					<p>
-						(ИО) подскажите проверяли сбрасывать настройки?
-					</p>
-					<div>
-						<button id='dishwasher__thirdvariant-yes'>Да</button>
-						<button id='dishwasher__thirdvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='dishwasher__thirdvariantno'>
-					<p>
-						Необходимо выключить от сети питания Вашу машинку на 15-20 минут<br> затем заново включить и проверить.
-					</p>
-					<button id='dishwasher__thirdvariantno-continue' class='alone-button'>Далее</button>
-				</div>
-				<div class='blocks hide notgreeting' id='dishwasher__thirdvariantgoodbye'>
-					<p>
-						Если поломка не устраниться, позвоните по этому же номеру для вызова мастера.
-					</p>
-				</div>
-
 				<!-- Газовая поверхность -->
-				<div class='blocks hide notgreeting' id='problemdirectory__gas'>
+				<div class='blocks hide ' id='problemdirectory__gas'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__gas-firstvariantbut' class='alone-button'>Проблема с подключением газового шланга</button>
 					<button id='problemdirectory__gas-secondvariantbut' class='alone-button'>Во время работы выключается аппарт</button>
 					<button id='problemdirectory__gas-thirdvariantbut' class='alone-button'>Другое</button>
 				</div>
 
-				<!-- Газовая поверхность - Проблема с подключением газового шланга -->
-				<div class='blocks hide notgreeting' id='gas__firstvariant'>
-					<p>
-						Неисправность возникает в следствии не герметичного подключения<br> газового шланга к печи, необходимо выполнить переподключение газового шланга.
-					</p>
-					<button id='gas__firstvariant-continue' class='alone-button'>Далее</button>
-				</div>
-
-				<!-- Газовая поверхность - Во время работы выключается аппарт -->
-				<div class='blocks hide notgreeting' id='gas__secondvariant'>
-					<p>
-						Подскажите, газовая поверхность подключена к питанию через сетевой фильтр?
-					</p>
-					<div>
-						<button id='gas__secondvariant-yes'>Да</button>
-						<button id='gas__secondvariant-no' class='right-button'>Нет</button>
-					</div>
-				</div>
-				<div class='blocks hide notgreeting' id='gas__secondvariantyes'>
-					<p>
-						Попробуйте подключить прибор напрямую в розетку.
-					</p>
-					<button id='gas__secondvariantyes-continue' class='alone-button'>Далее</button>
-				</div>
 				<!-- Завершения регистрации обращения для платного и гарантийного ремонтов -->
-				<div class='blocks hide notgreeting' id='problemdirectory__askresolve'>
+				<div class='blocks hide ' id='problemdirectory__askresolve'>
 					<p>
 						Скажите, удалось устранить неполадку?
 					</p>
@@ -734,7 +422,7 @@
 						<button id='problemdirectory__askresolve-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__needmaster'>
+				<div class='blocks hide ' id='problemdirectory__needmaster'>
 					<p>
 						Требуется вызов мастера.
 					</p>
@@ -742,7 +430,7 @@
 				</div>
 
 				<!-- Проблема решена по телефону -->
-				<div class='blocks hide notgreeting' id='problemdirectory__resolved'>
+				<div class='blocks hide ' id='problemdirectory__resolved'>
 					<p>
 						Хорошо, скажите возможно остались вопросы ко мне?
 					</p>
@@ -751,20 +439,20 @@
 						<button id='problemdirectory__resolved-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__resolvedquest'>
+				<div class='blocks hide ' id='problemdirectory__resolvedquest'>
 					<p>
 						Отвечаем на вопрос.
 					</p>
 					<button id='problemdirectory__resolvedquest-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__resolvedgoodbye'>
+				<div class='blocks hide ' id='problemdirectory__resolvedgoodbye'>
 					<p>
 						(ИО) спасибо за обращение в компанию ДСН, всего доброго, досвидания.
 					</p>
 				</div>
 
 				<!-- Гарантийный ремонт - поиск чека, нет авторизации -->
-				<div class='blocks hide notgreeting' id='warrantynotASC__bill'>
+				<div class='blocks hide ' id='warrantynotASC__bill'>
 					<p>
 						(Имя Отчество клиента), назовите, пожалуйста, номер чека.<br> Номер находится в верхнем правом углу, он состоит из Х цифр.
 					</p>
@@ -773,7 +461,7 @@
 						<button id='warrantynotASC__bill-havenot' class='right-button'>Чек не в наличии</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='warrantynotASC__billhavenot'>
+				<div class='blocks hide ' id='warrantynotASC__billhavenot'>
 					<p>
 						Тогда подскажите, пожалуйста, бренд; модель товара; дату и место покупки?
 					</p>
@@ -782,12 +470,12 @@
 						<button id='warrantynotASC__bill-havenotdata' class='right-button'>Клиент не назвал данные</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='warrantynotASC__billhavenotdata'>
+				<div class='blocks hide ' id='warrantynotASC__billhavenotdata'>
 					<p>
 						К сожалению мне необходимы эти данные для формирования заказа. Перезвоните пожалуйста, когда данные будут найдены.
 					</p>
 				</div>
-				<div class='blocks hide notgreeting' id='warrantynotASC__billhavedata'>
+				<div class='blocks hide ' id='warrantynotASC__billhavedata'>
 					<p>
 						Большое спасибо за информацию! Мне потребуется несколько минут, чтобы найти устройство в базе, ожидайте, пожалуйста, на линии!
 					</p>
@@ -797,7 +485,7 @@
 					</div>
 					<button id='warrantnotASC__billhavedata-searchinstruction' class='alone-button'>Не знаю как искать товар</button>
 				</div>
-				<div class='blocks hide notgreeting' id='warrantynotASC__billhave'>
+				<div class='blocks hide ' id='warrantynotASC__billhave'>
 					<p>
 						Большое спасибо! Ожидайте, пожалуйста, на линии мне потребуется несколько минут, чтобы найти ваш товар в базе данных. <i>Ставим клиента на удержание. Ищем товар в 1С.</i>
 					</p>
@@ -806,7 +494,7 @@
 						<button id='warrantynotASC__billhave-searchinstruction' class='right-button'>Не знаю как искать товар</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='warrantynotASC__billinstruction'>
+				<div class='blocks hide ' id='warrantynotASC__billinstruction'>
 					<p>
 						Инструкция по поиску товара в базе.
 					</p>
@@ -815,20 +503,20 @@
 						<button id='warrantynotASC__billinstruction-productnot' class='right-button'>Товар не найден</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='warrantynotASC__billwrongdata'>
+				<div class='blocks hide ' id='warrantynotASC__billwrongdata'>
 					<p>
 						(Имя Отчество клиента), к сожалению, по дате и месту покупке устройства, которые вы назвали не получилось найти.
 					</p>
 				</div>
 
 				<!-- Проблема не решена, требуется выезд мастера -->
-				<div class='blocks hide notgreeting' id='problemdirectory__notresolved'>
+				<div class='blocks hide ' id='problemdirectory__notresolved'>
 					<p>
 						Я вас понял(ла), для составления заявки необходимо уточнить ваше ФИО, Адрес, и полное название техники.  
 					</p>
 					<button id='problemdirectory__notresolved-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__notresolvedtime'>
+				<div class='blocks hide ' id='problemdirectory__notresolvedtime'>
 					<p>
 						Подскажите, Вам будет удобно если мастер приедет к вам (называем дату и время)?
 					</p>
@@ -837,13 +525,13 @@
 						<button id='problemdirectory__notresolvedtime-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__notresolvednewtime'>
+				<div class='blocks hide ' id='problemdirectory__notresolvednewtime'>
 					<p>
 						Подскажите, пожалуйста, какое время для вас будет удобным?
 					</p>
 					<button id='problemdirectory__notresolvednewtime-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__notresolvedgoodbye'>
+				<div class='blocks hide ' id='problemdirectory__notresolvedgoodbye'>
 					<p>
 						Хорошо, (называем ФИО клиента) назначаем визит специалиста на<br> (проговариваем дату и время) по адресу (проговариваем адрес) все верно?<br>
 						В таком случае, ожидайте мастера, он вам еще позвонит для уточнения<br> информации. Всего доброго, до свидания!
@@ -851,7 +539,7 @@
 				</div>
 
 				<!-- Не в ДНС - вызов мастера -->
-				<div class='blocks hide notgreeting' id='problemdirectory__notDNSnotresolved'>
+				<div class='blocks hide ' id='problemdirectory__notDNSnotresolved'>
 					<p>
 						(ИО) для приезда мастера необходимо отправить запрос в<br> компанию-производитель. Как только придет ответ, мы с вами свяжемся<br> для уточнение даты и времени визита специалиста. Скажите, возможно остались вопросы?
 					</p>
@@ -860,20 +548,20 @@
 						<button id='problemdirectory__notDNSnotresolved-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__notDNSnotresolvedyes'>
+				<div class='blocks hide ' id='problemdirectory__notDNSnotresolvedyes'>
 					<p>
 						Отвечаем на вопрос.
 					</p>
 					<button id='problemdirectory__notDNSnotresolvedyes-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__notDNSnotresolvedgoodbye'>
+				<div class='blocks hide ' id='problemdirectory__notDNSnotresolvedgoodbye'>
 					<p>
 						Хорошо, спасибо за обращение мы с вами обязательно свяжемся, всего доброго, досвидания.
 					</p>
 				</div>
 
 				<!-- АСЦ - вызов мастера -->
-				<div class='blocks hide notgreeting' id='problemdirectory__ASCnotresolved'>
+				<div class='blocks hide ' id='problemdirectory__ASCnotresolved'>
 					<p>
 						(ИО) перед приезда мастера необхлоди отправить запрос в компанию-производитель.<br>
 						Для запроса необходима информацию которая содержиться на шидике<br> (шильдик находиться на коробке из под устройствадолжно читаться<br> изделие/модель, серийный номер,) и иформация с чека. подскажите, у вас есть<br> возможность отправить фотографии на электронную почту?
@@ -883,19 +571,19 @@
 						<button id='problemdirectory__ASCnotresolved-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__ASCnotresolvedno'>
+				<div class='blocks hide ' id='problemdirectory__ASCnotresolvedno'>
 					<p>
 						Я вас понял(ла) тогда необходимо будет продиктовать эту информацию.<br> На шильдике продиктуйте  название изделия, модельи серийный номер, так<br> скажите, пожалуйста, номер чека. 
 					</p>
 					<button id='problemdirectory__ASCnotresolvedyes-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__ASCnotresolvedyes'>
+				<div class='blocks hide ' id='problemdirectory__ASCnotresolvedyes'>
 					<p>
 						Хорошо, фотографии необходимо будет отправить по адресу (адрес<br> электронной почты). после получения от вас письма , заявка будет<br> сформирована.
 					</p>
 					<button id='problemdirectory__ASCnotresolvedno-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__ASCnotresolvedquest'>
+				<div class='blocks hide ' id='problemdirectory__ASCnotresolvedquest'>
 					<p>
 						Хорошо,как только придет ответ, мы с вами свяжемся для уточнение даты<br> и времени визита специалиста. Скажите, возможно остались вопросы? 
 					<div>
@@ -903,21 +591,24 @@
 						<button id='problemdirectory__ASCnotresolvedquest-no' class='right-button'>Нет</button>
 					</div>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__ASCnotresolvedquestyes'>
+				<div class='blocks hide ' id='problemdirectory__ASCnotresolvedquestyes'>
 					<p>
 						Отвечаем на вопрос.
 					</p>
 					<button id='problemdirectory__ASCnotresolvedquestyes-continue' class='alone-button'>Далее</button>
 				</div>
-				<div class='blocks hide notgreeting' id='problemdirectory__ASCnotresolvedgoodbye'>
+				<div class='blocks hide ' id='problemdirectory__ASCnotresolvedgoodbye'>
 					<p>
 						Хорошо,как только придет ответ, мы с вами свяжемся для уточнение даты<br> и времени визита специалиста. Скажите, возможно остались вопросы?<br> спасибо за обращение мы с вами обязательно свяжемся, всего доброго,<br> досвидания.
 					</p>
 				</div>
 			</section>
 
-			<!-- Кнопка домой -->
-			<button class='hide home-button' id='home'>Домой (сброс ответов)</button>
+			<!-- Кнопки домой и назад -->
+			<div class ='button-blocks home-block'>
+				<button id='back'>Назад</button>
+				<button id='home' class='right-button'>Домой (сброс ответов)</button>
+			</div>
 		</main>
 		<footer>
 			<p>
