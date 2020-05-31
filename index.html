@@ -329,12 +329,12 @@
 				<div class='blocks hide ' id='problemdirectory'>
 					<h2>Выберите изделие</h2>
 					<div>
-						<button id='problemdirectory-stovebut'>Электрическая поверхность</button>
-						<button id='problemdirectory-conditionbut' class='right-button'>Кондиционер</button>
-					</div>
-					<div>
 						<button id='problemdirectory-refrigeratorbut'>Холодильник</button>
 						<button id='problemdirectory-washerbut' class='right-button'>Стиральная машина</button>
+					</div>
+					<div>
+						<button id='problemdirectory-stovebut'>Электрическая поверхность</button>
+						<button id='problemdirectory-conditionbut' class='right-button'>Кондиционер</button>
 					</div>
 					<div>
 						<button id='problemdirectory-ovenbut'>Духовой шкаф</button>
@@ -346,87 +346,262 @@
 					</div>
 				</div>
 
+				<!-- Холодильник -->
+				<div class='blocks hide ' id='problemdirectory__refrigerator'>
+					<h2>Выберите неисправность</h2>
+					<button id='problemdirectory__refrigerator-firstvariantbut' class='alone-button'>Холодильник не работает</button>
+					<button id='problemdirectory__refrigerator-secondvariantbut' class='alone-button'>Ошибки панели управления - сенсорная панель управления</button>
+					<button id='problemdirectory__refrigerator-thirdvariantbut' class='alone-button'>Ошибки панели управления - индикаторная панель управления</button>
+					<button id='problemdirectory__refrigerator-fourthvariantbut' class='alone-button'>Не морозит</button>
+					<button id='problemdirectory__refrigerator-fifthvariantbut' class='alone-button'>Шумы при работе</button>
+					<button id='problemdirectory__refrigerator-sixthvariantbut' class='alone-button'>Холодильник нагревается</button>
+				</div>
+
+				<!-- Холодильник - Холодильник не работает -->
+				<div class='blocks hide ' id='refrigerator-firstvariant'>
+					<img src="img/холодильник1.png" alt="холодильник1">
+					<img src="img/холодильник1-2.png" alt="холодильник1-2">
+					<div>
+						<button id='refrigerator-firstvariant-solved'>Проблема решена</button>
+						<button id='refrigerator-firstvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Холодильник - Ошибки панели управления - сенсорная панель управления -->
+				<div class='blocks hide ' id='refrigerator-secondvariant'>
+					<img src="img/холодильник2.png" alt="холодильник2">
+					<div>
+						<button id='refrigerator-secondvariant-solved'>Проблема решена</button>
+						<button id='refrigerator-secondvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Холодильник - Ошибки панели управления - индикаторная панель управления -->
+				<div class='blocks hide ' id='refrigerator-thirdvariant'>
+					<img src="img/холодильник3.png" alt="холодильник3">
+					<img src="img/холодильник3-2.png" alt="холодильник3-2">
+					<div>
+						<button id='refrigerator-thirdvariant-solved'>Проблема решена</button>
+						<button id='refrigerator-thirdvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Холодильник - Не морозит -->
+				<div class='blocks hide ' id='refrigerator-fourthvariant'>
+					<img src="img/холодильник4.png" alt="холодильник4">
+					<div>
+						<button id='refrigerator-fourthvariant-solved'>Проблема решена</button>
+						<button id='refrigerator-fourthvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Холодильник - Шумы при работе -->
+				<div class='blocks hide ' id='refrigerator-fifthvariant'>
+					<img src="img/холодильник5.png" alt="холодильник5">
+					<div>
+						<button id='refrigerator-fifthvariant-solved'>Проблема решена</button>
+						<button id='refrigerator-fifthvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Холодильник - Холодильник нагревается -->
+				<div class='blocks hide ' id='refrigerator-sixthvariant'>
+					<img src="img/холодильник6.png" alt="холодильник6">
+					<div>
+						<button id='refrigerator-sixthvariant-solved'>Проблема решена</button>
+						<button id='refrigerator-sixthvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Стиральная машина -->
+				<div class='blocks hide ' id='problemdirectory__washer'>
+					<h2>Выберите неисправность</h2>
+					<button id='problemdirectory__washer-firstvariantbut' class='alone-button'>Не заполняется водой</button>
+					<button id='problemdirectory__washer-secondvariantbut' class='alone-button'>Не начинается выполнение цикла стирки</button>
+					<button id='problemdirectory__washer-thirdvariantbut' class='alone-button'>Непрерывно заливается и сливается вода</button>
+					<button id='problemdirectory__washer-fourthvariantbut' class='alone-button'>Не включается</button>
+					<button id='problemdirectory__washer-fifthvariantbut' class='alone-button'>Не сливает воду/Не отжимается белье</button>
+				</div>
+
+				<!-- Стиральная машина - Не заполняется водой -->
+				<div class='blocks hide ' id='washer-firthvariant'>
+					<img src="img/стиралка1.png" alt="стиралка1">
+					<img src="img/стиралка1-2.png" alt="стиралка1-2">
+					<div>
+						<button id='washer-firsthvariant-solved'>Проблема решена</button>
+						<button id='washer-firsthvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Стиральная машина - Не начинается выполнение цикла стирки -->
+				<div class='blocks hide ' id='washer-secondvariant'>
+					<img src="img/стиралка2.png" alt="стиралка2">
+					<img src="img/стиралка2-2.png" alt="стиралка2-2">
+					<div>
+						<button id='washer-secondvariant-solved'>Проблема решена</button>
+						<button id='washer-secondvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Стиральная машина - Непрерывно заливается и сливается вода -->
+				<div class='blocks hide ' id='washer-thirdvariant'>
+					<img src="img/стиралка3.png" alt="стиралка3">
+					<img src="img/стиралка3-2.png" alt="стиралка3-2">
+					<div>
+						<button id='washer-thirdvariant-solved'>Проблема решена</button>
+						<button id='washer-thirdvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Стиральная машина - Не включается -->
+				<div class='blocks hide ' id='washer-fourthvariant'>
+					<img src="img/стиралка4.png" alt="стиралка4">
+					<img src="img/стиралка4-2.png" alt="стиралка4-2">
+					<div>
+						<button id='washer-fourthvariant-solved'>Проблема решена</button>
+						<button id='washer-fourthvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Стиральная машина - Не сливает воду/Не отжимается белье -->
+				<div class='blocks hide ' id='washer-fifthvariant'>
+					<img src="img/стиралка5.png" alt="стиралка5">
+					<img src="img/стиралка5-2.png" alt="стиралка5-2">
+					<div>
+						<button id='washer-fifthvariant-solved'>Проблема решена</button>
+						<button id='washer-fifthvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
 				<!-- Электрическая поверхность -->
 				<div class='blocks hide ' id='problemdirectory__stove'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__stove-firstvariantbut' class='alone-button'>Не включается</button>
 					<button id='problemdirectory__stove-secondvariantbut' class='alone-button'>Пятна на стекле</button>
-					<button id='problemdirectory__stove-thirdvariantbut' class='alone-button'>Другое</button>
+				</div>
+
+				<!-- Электрическая поверхность - Не включается -->
+				<div class='blocks hide ' id='stove-firstvariant'>
+					<img src="img/электрическаяповерхность1.png" alt="электрическаяповерхность1">
+					<div>
+						<button id='stove-firstvariant-solved'>Проблема решена</button>
+						<button id='stove-firstvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Электрическая поверхность - Пятна на стекле -->
+				<div class='blocks hide ' id='stove-secondvariant'>
+					<img src="img/электрическаяповерхность2.png" alt="электрическаяповерхность2">
+					<div>
+						<button id='stove-secondvariant-solved'>Проблема решена</button>
+						<button id='stove-secondvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
 				</div>
 				
 				<!-- Кондиционер -->
 				<div class='blocks hide ' id='problemdirectory__condition'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__condition-firstvariantbut' class='alone-button'>Капает вода из корпуса</button>
-					<button id='problemdirectory__condition-secondvariantbut' class='alone-button'>Другое</button>
 				</div>
 
-				<!-- Холодильник -->
-				<div class='blocks hide ' id='problemdirectory__refrigerator'>
-					<h2>Выберите неисправность</h2>
-					<button id='problemdirectory__refrigerator-firstvariantbut' class='alone-button'>Греются стенки</button>
-					<button id='problemdirectory__refrigerator-secondvariantbut' class='alone-button'>Небольшой слой инея</button>
-					<button id='problemdirectory__refrigerator-thirdvariantbut' class='alone-button'>Другое</button>
-				</div>
-
-				<!-- Стиральная машина -->
-				<div class='blocks hide ' id='problemdirectory__washer'>
-					<h2>Выберите неисправность</h2>
-					<button id='problemdirectory__washer-firstvariantbut' class='alone-button'>Течет/образуется много пены</button>
-					<button id='problemdirectory__washer-secondvariantbut' class='alone-button'>Вода долго набирается/самослив/Ошибка "нет воды"</button>
-					<button id='problemdirectory__washer-thirdvariantbut' class='alone-button'>Не включается стиральная машина</button>
-					<button id='problemdirectory__washer-fourthvariantbut' class='alone-button'>Не отжимает/не сливает воду</button>
-					<button id='problemdirectory__washer-fifthvariantbut' class='alone-button'>Ошибка H2O/ не заливает воду</button>
-					<button id='problemdirectory__washer-sixthvariantbut' class='alone-button'>Сильная вибрация</button>
-					<button id='problemdirectory__washer-seventhvariantbut' class='alone-button'>Другое</button>
+				<!-- Кондиционер - Капает вода из корпуса -->
+				<div class='blocks hide ' id='condition-firstvariant'>
+					<img src="img/кондиционер1.png" alt="кондиционер1">
+					<div>
+						<button id='condition-firstvariant-solved'>Проблема решена</button>
+						<button id='condition-firstvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
 				</div>
 
 				<!-- Духовой шкаф -->
 				<div class='blocks hide ' id='problemdirectory__oven'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__oven-firstvariantbut' class='alone-button'>Во время работы выключается аппарат</button>
-					<button id='problemdirectory__oven-secondvariantbut' class='alone-button'>Другое</button>
+				</div>
+
+				<!-- Духовой шкаф - Во время работы выключается аппарат -->
+				<div class='blocks hide ' id='oven-firstvariant'>
+					<img src="img/духовойшкаф1.png" alt="духовойшкаф1">
+					<div>
+						<button id='oven-firstvariant-solved'>Проблема решена</button>
+						<button id='oven-firstvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
 				</div>
 
 				<!-- Вытяжка -->
 				<div class='blocks hide ' id='problemdirectory__hood'>
 					<h2>Выберите неисправность</h2>
 					<button id='problemdirectory__hood-firstvariantbut' class='alone-button'>Плохая тяга</button>
-					<button id='problemdirectory__hood-secondvariantbut' class='alone-button'>Другое</button>
+				</div>
+
+				<!-- Вытяжка - Плохая тяга -->
+				<div class='blocks hide ' id='hood-firstvariant'>
+					<img src="img/вытяжка1.png" alt="вытяжка1">
+					<div>
+						<button id='hood-firstvariant-solved'>Проблема решена</button>
+						<button id='hood-firstvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
 				</div>
 
 				<!-- Посудомоечная машина -->
 				<div class='blocks hide ' id='problemdirectory__dishwasher'>
 					<h2>Выберите неисправность</h2>
-					<button id='problemdirectory__dishwasher-firstvariantbut' class='alone-button'>Не сливает воду/не моет посуду</button>
+					<button id='problemdirectory__dishwasher-firstvariantbut' class='alone-button'>Не сливает воду</button>
 					<button id='problemdirectory__dishwasher-secondvariantbut' class='alone-button'>Не набирает воду</button>
 					<button id='problemdirectory__dishwasher-thirdvariantbut' class='alone-button'>Не выбирает режим мойки</button>
-					<button id='problemdirectory__dishwasher-fourthdvariantbut' class='alone-button'>Другое</button>
+				</div>
+
+				<!-- Посудомоечная машина - Не сливает воду -->
+				<div class='blocks hide ' id='dishwasher-firstvariant'>
+					<img src="img/посудомойка1.png" alt="посудомойка1">
+					<div>
+						<button id='dishwasher-firstvariant-solved'>Проблема решена</button>
+						<button id='dishwasher-firstvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Посудомоечная машина - Не набирает воду -->
+				<div class='blocks hide ' id='dishwasher-secondvariant'>
+					<img src="img/посудомойка2.png" alt="посудомойка2">
+					<div>
+						<button id='dishwasher-secondvariant-solved'>Проблема решена</button>
+						<button id='dishwasher-secondvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
+				</div>
+
+				<!-- Посудомоечная машина - Не выбирает режим мойки -->
+				<div class='blocks hide ' id='dishwasher-thirdvariant'>
+					<img src="img/посудомойка3.png" alt="посудомойка3">
+					<div>
+						<button id='dishwasher-thirdvariant-solved'>Проблема решена</button>
+						<button id='dishwasher-thirdvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
 				</div>
 
 				<!-- Газовая поверхность -->
 				<div class='blocks hide ' id='problemdirectory__gas'>
 					<h2>Выберите неисправность</h2>
-					<button id='problemdirectory__gas-firstvariantbut' class='alone-button'>Проблема с подключением газового шланга</button>
-					<button id='problemdirectory__gas-secondvariantbut' class='alone-button'>Во время работы выключается аппарт</button>
-					<button id='problemdirectory__gas-thirdvariantbut' class='alone-button'>Другое</button>
+					<button id='problemdirectory__gas-firstvariantbut' class='alone-button'>Отключается во время работы</button>
+					<button id='problemdirectory__gas-secondvariantbut' class='alone-button'>Не включается</button>
 				</div>
 
-				<!-- Завершения регистрации обращения для платного и гарантийного ремонтов -->
-				<div class='blocks hide ' id='problemdirectory__askresolve'>
-					<p>
-						Скажите, удалось устранить неполадку?
-					</p>
+				<!-- Газовая поверхность - Отключается во время работы -->
+				<div class='blocks hide ' id='gas-firstvariant'>
+					<img src="img/газ1.png" alt="газ1">
 					<div>
-						<button id='problemdirectory__askresolve-yes'>Да</button>
-						<button id='problemdirectory__askresolve-no' class='right-button'>Нет</button>
+						<button id='gas-firstvariant-solved'>Проблема решена</button>
+						<button id='gas-firstvariant-master' class='right-button'>Требуется вызов мастера</button>
 					</div>
 				</div>
-				<div class='blocks hide ' id='problemdirectory__needmaster'>
-					<p>
-						Требуется вызов мастера.
-					</p>
-					<button id='problemdirectory__needmaster-continue' class='alone-button'>Далее</button>
+
+				<!-- Газовая поверхность - Не включается -->
+				<div class='blocks hide ' id='gas-secondvariant'>
+					<img src="img/газ2.png" alt="газ2">
+					<img src="img/газ2-2.png" alt="газ2-2">
+					<div>
+						<button id='gas-secondvariant-solved'>Проблема решена</button>
+						<button id='gas-secondvariant-master' class='right-button'>Требуется вызов мастера</button>
+					</div>
 				</div>
 
 				<!-- Проблема решена по телефону -->
@@ -451,65 +626,13 @@
 					</p>
 				</div>
 
-				<!-- Гарантийный ремонт - поиск чека, нет авторизации -->
-				<div class='blocks hide ' id='warrantynotASC__bill'>
-					<p>
-						(Имя Отчество клиента), назовите, пожалуйста, номер чека.<br> Номер находится в верхнем правом углу, он состоит из Х цифр.
-					</p>
-					<div>
-						<button id='warrantynotASC__bill-have'>Чек есть</button>
-						<button id='warrantynotASC__bill-havenot' class='right-button'>Чек не в наличии</button>
-					</div>
-				</div>
-				<div class='blocks hide ' id='warrantynotASC__billhavenot'>
-					<p>
-						Тогда подскажите, пожалуйста, бренд; модель товара; дату и место покупки?
-					</p>
-					<div>
-						<button id='warrantynotASC__bill-havedata'>Клиент назвал данные</button>
-						<button id='warrantynotASC__bill-havenotdata' class='right-button'>Клиент не назвал данные</button>
-					</div>
-				</div>
-				<div class='blocks hide ' id='warrantynotASC__billhavenotdata'>
-					<p>
-						К сожалению мне необходимы эти данные для формирования заказа. Перезвоните пожалуйста, когда данные будут найдены.
-					</p>
-				</div>
-				<div class='blocks hide ' id='warrantynotASC__billhavedata'>
-					<p>
-						Большое спасибо за информацию! Мне потребуется несколько минут, чтобы найти устройство в базе, ожидайте, пожалуйста, на линии!
-					</p>
-					<div>
-						<button id='warrantynotASC__billhavedata-product'>Товар найден</button>
-						<button id='warrantynotASC__billhavedata-productnot' class='right-button'>Товар не найден</button>
-					</div>
-					<button id='warrantnotASC__billhavedata-searchinstruction' class='alone-button'>Не знаю как искать товар</button>
-				</div>
-				<div class='blocks hide ' id='warrantynotASC__billhave'>
-					<p>
-						Большое спасибо! Ожидайте, пожалуйста, на линии мне потребуется несколько минут, чтобы найти ваш товар в базе данных. <i>Ставим клиента на удержание. Ищем товар в 1С.</i>
-					</p>
-					<div>
-						<button id='warrantynotASC__billhave-product'>Товар найден</button>
-						<button id='warrantynotASC__billhave-searchinstruction' class='right-button'>Не знаю как искать товар</button>
-					</div>
-				</div>
-				<div class='blocks hide ' id='warrantynotASC__billinstruction'>
-					<p>
-						Инструкция по поиску товара в базе.
-					</p>
-					<div>
-						<button id='warrantynotASC__billinstruction-product'>Товар найден</button>
-						<button id='warrantynotASC__billinstruction-productnot' class='right-button'>Товар не найден</button>
-					</div>
-				</div>
-				<div class='blocks hide ' id='warrantynotASC__billwrongdata'>
-					<p>
-						(Имя Отчество клиента), к сожалению, по дате и месту покупке устройства, которые вы назвали не получилось найти.
-					</p>
-				</div>
-
 				<!-- Проблема не решена, требуется выезд мастера -->
+				<div class='blocks hide ' id='problemdirectory__needmaster'>
+					<p>
+						Требуется вызов мастера.
+					</p>
+					<button id='problemdirectory__needmaster-continue' class='alone-button'>Далее</button>
+				</div>
 				<div class='blocks hide ' id='problemdirectory__notresolved'>
 					<p>
 						Я вас понял(ла), для составления заявки необходимо уточнить ваше ФИО, Адрес, и полное название техники.  
@@ -563,7 +686,7 @@
 				<!-- АСЦ - вызов мастера -->
 				<div class='blocks hide ' id='problemdirectory__ASCnotresolved'>
 					<p>
-						(ИО) перед приезда мастера необхлоди отправить запрос в компанию-производитель.<br>
+						(ИО) перед приезда мастера неободимо отправить запрос в компанию-производитель.<br>
 						Для запроса необходима информацию которая содержиться на шидике<br> (шильдик находиться на коробке из под устройствадолжно читаться<br> изделие/модель, серийный номер,) и иформация с чека. подскажите, у вас есть<br> возможность отправить фотографии на электронную почту?
 					</p>
 					<div>
