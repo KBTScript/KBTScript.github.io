@@ -108,3 +108,9 @@ select {
 	border-radius: 10px;
 	font-size: 25px;
 }
+
+/* текст подсказка */
+.texthelper {
+	color: #2a42f7;
+	font-weight: bold;
+}
