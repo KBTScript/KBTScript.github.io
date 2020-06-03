@@ -32,7 +32,7 @@ p {
 
 button {
 	font-size: 20px;
-	margin: 0px 20px 0px 0px;
+	margin: 0px 20px 20px 0px;
 	padding: 10px 40px;
 }
 
@@ -41,7 +41,7 @@ main {
 	align-items: center;
 	flex-direction: column;
 	background: #0160AF;
-	padding:20px 0px 20px 0px;l
+	padding:20px 0px 20px 0px;
 }
 
 section {
@@ -98,11 +98,13 @@ select {
 .alone-button {
 	margin: 0px 0px 20px 0px;
 }
-
-.home-block {
-	margin: 0px;
-}
-
 .greeting__button {
 	width: 400px;
+}
+
+.botbutton {
+	width: 400px;
+	height: 60px;
+	border-radius: 10px;
+	font-size: 25px;
 }

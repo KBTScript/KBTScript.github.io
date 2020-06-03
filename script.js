@@ -331,8 +331,13 @@ function catchClick(event) {
 			showNextBlock(warrantyBillHaveNotData);
 			break;
 		case 'warranty__billhavedata-product':
-			showNextBlock(firstCallDeffect);
-			break;
+			if(isNotASC){
+				showNextBlock(ProblemDirectoryNotResolvedTime);
+				break;
+			} else {
+				showNextBlock(firstCallDeffect);
+				break;
+			}
 		case 'warranty__billhavedata-productnot':
 			showNextBlock(warrantyBillWrongData);
 			break;
@@ -340,14 +345,24 @@ function catchClick(event) {
 			showNextBlock(warrantyBillInstruction);
 			break;
 		case 'warranty__billhave-product':
-			showNextBlock(firstCallDeffect);
-			break;
+			if(isNotASC){
+				showNextBlock(ProblemDirectoryNotResolvedTime);
+				break;
+			} else {
+				showNextBlock(firstCallDeffect);
+				break;
+			}
 		case 'warranty__billhave-searchinstruction':
 			showNextBlock(warrantyBillInstruction);
 			break;
 		case 'warranty__billinstruction-product':
-			showNextBlock(firstCallDeffect);
-			break;
+			if(isNotASC){
+				showNextBlock(ProblemDirectoryNotResolvedTime);
+				break;
+			} else {
+				showNextBlock(firstCallDeffect);
+				break;
+			}
 		case 'warranty__billinstruction-productnot':
 			showNextBlock(warrantyBillWrongData);
 			break;
@@ -632,12 +647,12 @@ function catchClick(event) {
 			showNextBlock(ProblemDirectoryNeedMaster);
 			break;
 
-		// завершение регистрации
+		// вызов мастера
 		case 'problemdirectory__needmaster-continue':
 			if (isASC) {
 				showNextBlock(ProblemDirectoryASCNotResolved);
 			} else if (isNotASC) {
-				showNextBlock(warrantyNotASCBill);
+				showNextBlock(warrantyBill);
 			}
 			else {
 				showNextBlock(ProblemDirectoryNotResolved);
@@ -757,25 +772,27 @@ function goStart() {
 }
 
 function goBack() {
-	hideBlock(currentBlock);
-	if (currentBlock == generalCheckingGreeting) {
-		isRecall = false;
-		isTimeTransfer = false;
-		isFirstCall = false;
+	if(blocks.length > 0){
+		hideBlock(currentBlock);
+		if (currentBlock == generalCheckingGreeting) {
+			isRecall = false;
+			isTimeTransfer = false;
+			isFirstCall = false;
+		}
+		if (currentBlock == firstCallCheckingBrand){
+			isWarranty = false;
+			isPaid = false;
+		}
+		if (currentBlock == firstCallWarrantyNumber){
+			isDNSClient = false;
+			isNotASC = false;
+		}
+		if (currentBlock == warrantyBill) {
+			isDNSClient = false;
+			isASC = false;
+		}
+		currentBlock = blocks[blocks.length - 1];
+		blocks.pop();
+		showBlock(currentBlock);
 	}
-	if (currentBlock == firstCallCheckingBrand){
-		isWarranty = false;
-		isPaid = false;
-	}
-	if (currentBlock == firstCallWarrantyNumber){
-		isDNSClient = false;
-		isNotASC = false;
-	}
-	if (currentBlock == warrantyBill) {
-		isDNSClient = false;
-		isASC = false;
-	}
-	currentBlock = blocks[blocks.length - 1];
-	blocks.pop();
-	showBlock(currentBlock);
 }
