@@ -114,3 +114,18 @@ select {
 	color: #2a42f7;
 	font-weight: bold;
 }
+
+ /* стиль для текста сбоку */
+ .withTextAside {
+ 	display: flex;
+	align-items: center;
+ 	flex-direction: row;
+ }
+
+ /* стиль для текста в рамочке*/
+.textInBorder {
+	font-size: 20px;
+	padding: 10px;
+	border: 2px solid red;
+	border-radius: 10px;
+}
