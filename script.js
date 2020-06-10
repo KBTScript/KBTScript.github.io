@@ -23,13 +23,13 @@ let firstCallChecking = document.querySelector('#first-call__checking');
 let firstCallCheckingBrand = document.querySelector('#first-call__checkingbrand');
 
 // первичное обращение - гарантийный ремонт
-let firstCallWarrantyNumberNoMoreYear = document.querySelector('#first-call__warrantynumbernomoreyear');
+let firstCallWarrantyWhereBuy= document.querySelector('#first-call__warrantyWhereBuy');
 
 // первичное обращение - гарантийный ремонт - 
 // изделие приобретено не в ДНС/ изделие приобретено в ДНС (нет авторизации) / проверка качества
 let firstCallWarrantyNumber = document.querySelector('#first-call__warrantynumber');
 let firstCallWarrantyNumberYes = document.querySelector('#first-call__warrantynumberyes');
-let firstCallWarrantyNumberYes = document.querySelector('#first-call__warrantynumberyes');
+let firstCallWarrantyNumberNumberNoMoreYear = document.querySelector('#first-call__warrantynumbernomoreyear');
 
 // первичное обращение - изделие куплено в ДНС
 let firstCallWarrantyDNSClient = document.querySelector('#first-call__warrantyDNSClient');
@@ -309,7 +309,7 @@ function catchClick(event) {
 			}
 			break;
 		case 'first-call__warrantynumberno-moreyear':
-			showNextBlock(firstCallWarrantyNumberNoMoreYear);
+			showNextBlock(firstCallWarrantyNumberNumberNoMoreYear);
 			break;
 		case 'first-call__warrantynumberno-lessyear':
 			showNextBlock(firstCallDeffect);
