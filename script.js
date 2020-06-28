@@ -29,6 +29,7 @@ let firstCallWarrantyWhereBuy= document.querySelector('#first-call__warrantyWher
 // изделие приобретено не в ДНС/ изделие приобретено в ДНС (нет авторизации) / проверка качества
 let firstCallWarrantyNumber = document.querySelector('#first-call__warrantynumber');
 let firstCallWarrantyNumberYes = document.querySelector('#first-call__warrantynumberyes');
+let firstCallWarrantyNumberNo = document.querySelector('#first-call__warrantynumberno');
 let firstCallWarrantyNumberNumberNoMoreYear = document.querySelector('#first-call__warrantynumbernomoreyear');
 
 // первичное обращение - изделие куплено в ДНС
@@ -37,6 +38,9 @@ let firstCallWarrantyNumberNoDNS = document.querySelector('#first-call__warranty
 
 // первичное обращение - изделие куплено не в ДНС
 let firstCallWarrantyNumberNoNotDNS = document.querySelector('#first-call__warrantynumbernonotDNS');
+
+// первичное обращение - изделие куплено в ДНС есть авторизация перенаправляем вендору
+let firstCallDNSAuthorizationCallVendor = document.querySelector('#first-call__DNSauthorizationcallvendor');
 
 // гарантийный ремонт - поиск чека 
 let warrantyBill = document.querySelector('#warranty__bill');
@@ -151,10 +155,12 @@ let blocks = [];
 // текущий блок
 let currentBlock = greetingAppeal;
 
-// метки первичное обращение/повторное обращение/перенос времени
-let isFirstCall = false;
+// метки первичное обращение/повторное обращение/перенос времени/заявка поступила отвендора
 let isRecall = false;
 let isTimeTransfer = false;
+let isVendor = false;
+let isSite = false;
+let isCallTransfer = false;
 
 // метки гарантийный/ платный ремонт
 let isWarranty = false;
@@ -179,9 +185,17 @@ function catchClick(event) {
 			showNextBlock(generalCheckingGreeting);
 			isTimeTransfer = true;
 			break;
-		case 'greeting__appeal-firstcall':
+		case 'greeting__appeal-vendor':
 			showNextBlock(generalCheckingGreeting);
-			isFirstCall = true;
+			isVendor = true;
+			break;
+		case 'greeting__appeal-site':
+			showNextBlock(generalCheckingGreeting);
+			isSite = true;
+			break;
+		case 'greeting__appeal-calltransfer':
+			showNextBlock(firstCallChecking);
+			isCallTransfer = true;
 			break;
 		case 'general-checking__greeting-no':
 			showNextBlock(generalCheckingGoodbyeMistake);
@@ -193,7 +207,10 @@ function catchClick(event) {
 			if(isTimeTransfer){
 				showNextBlock(timeTransferNewTime);
 			}
-			if(isFirstCall){
+			if(isVendor){
+				showNextBlock(recallClarification);
+			}
+			if(isSite){
 				showNextBlock(firstCallChecking);
 			}
 			break;
@@ -286,7 +303,7 @@ function catchClick(event) {
 			isNotASC = true;
 			break;
 		case 'first-call__warrantyDNSClient-autor':
-			showNextBlock(warrantyBill);
+			showNextBlock(firstCallDNSAuthorizationCallVendor);
 			isDNSClient = true;
 			isASC = true;
 			break;
@@ -296,17 +313,21 @@ function catchClick(event) {
 			isNotASC = true;
 			break;
 		
+		// первичное обращение - изделие куплено в ДНС есть авторизация перенаправляем вендору
+		case 'first-call__DNSauthorizationcallvendor-yes':
+			showNextBlock(firstCallWarrantyNumberYes);
+			break;
+		case 'first-call__DNSauthorizationcallvendor-no':
+			showNextBlock(warrantyBill);
+			break;
+
 		// первичное обращение - гарантийный ремонт - 
 		// покупали не в ДНС
 		case 'first-call__warrantynumber-yes':
 			showNextBlock(firstCallWarrantyNumberYes);
 			break;
 		case 'first-call__warrantynumber-no':
-			if(isDNSClient) {
-				showNextBlock(firstCallWarrantyNumberNoDNS);
-			} else {
-				showNextBlock(firstCallWarrantyNumberNoNotDNS);
-			}
+			showNextBlock(firstCallWarrantyNumberNo)
 			break;
 		case 'first-call__warrantynumberno-moreyear':
 			showNextBlock(firstCallWarrantyNumberNumberNoMoreYear);
@@ -719,6 +740,44 @@ function catchClick(event) {
 			showNextBlock(ProblemDirectoryASCNotResolvedGoodBye);
 			break;
 
+		// кнопки в конце обращений
+		case 'general-checking__closeappeal':
+			goStart();
+			break;
+		case 'recall__closeappeal':
+			goStart();
+			break;
+		case 'time-transfer__closeappeal':
+			goStart();
+			break;
+		case 'first-call__noDNScloseappeal':
+			goStart();
+			break;
+		case 'first-call__moreyearcloseappeal':
+			goStart();
+			break;
+		case 'first-call__numberyescloseappeal':
+			goStart();
+			break;
+		case 'first-call__billhavenotdatacloseappeal':
+			goStart();
+			break;
+		case 'first-call__billwrongdatacloseappeal':
+			goStart();
+			break;
+		case 'problemdirectory__resolvedgoodbyecloseappeal':
+			goStart();
+			break;
+		case 'problemdirectory__notresolvedgoodbyecloseappeal':
+			goStart();
+			break;
+		case 'problemdirectory__notDNSnotresolvedgoodbyecloseappeal':
+			goStart();
+			break;
+		case 'problemdirectory__ASCnotresolvedgoodbyecloseappeal':
+			goStart();
+			break;
+
 		// кнопка домой
 		case 'home':
 			goStart();
@@ -759,7 +818,9 @@ function showButton(button) {
 function goStart() {
 	isRecall = false;
 	isTimeTransfer = false;
-	isFirstCall = false;
+	isVendor = false;
+	isSite = false;
+	isCallTransfer = false;
 	isWarranty = false;
 	isPaid = false;
 	isDNSClient = false;
@@ -778,7 +839,9 @@ function goBack() {
 		if (currentBlock == generalCheckingGreeting) {
 			isRecall = false;
 			isTimeTransfer = false;
-			isFirstCall = false;
+			isSite = false;
+			isVendor = false;
+			isCallTransfer = false;
 		}
 		if (currentBlock == firstCallCheckingBrand){
 			isWarranty = false;

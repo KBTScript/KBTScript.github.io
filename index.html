@@ -13,9 +13,11 @@
 			<section>
 				<!-- Вступительный блок -->
 				<div class='blocks' id='greeting__appeal'>
+					<button class='greeting__button alone-button' id='greeting__appeal-vendor'>Заявка поступила от вендера</button>
+					<button class='greeting__button alone-button' id='greeting__appeal-timetransfer'>Перенос времени визита мастера<br>(мастер задерживается)</button>	
 					<button class='greeting__button alone-button' id='greeting__appeal-recall'>Согласование визита мастера повторно</button>
-					<button class='greeting__button alone-button' id='greeting__appeal-firstcall'>Обработка первичного обращения</button>
-					<button class='greeting__button right-button' id='greeting__appeal-timetransfer'>Перенос времени визита мастера<br>(мастер задерживается)</button>
+					<button class='greeting__button alone-button' id='greeting__appeal-site'>Заявка поступила из сайта</button>
+					<button class='greeting__button alone-button' id='greeting__appeal-calltransfer'>Перевели звонок клиента</button>
 				</div>
 
 				<!-- Общий блок -->
@@ -33,13 +35,14 @@
 					<p>
 						Прошу прощение за беспокойство, наверное, произошла ошибка в наборе номера. До свидания!
 					</p>
+					<button id='general-checking__closeappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 
 				<!-- Блок повторного визита мастера -->
 				<div class='blocks hide ' id='recall__clarification'>
 					<p>
-						Я вас понял(ла). Давайте сверим данные, скажите, пожалуйста,<br> 
-						полное ФИО и адрес проживания.
+						Я вас понял(ла). Давайте сверим данные, скажите, пожалуйста,<br>
+						полное ФИО, номер телефона и адрес, где находится устройство.
 					</p>
 					<button id='recall__clarification-continue' class='alone-button''>Далее</button>
 				</div>
@@ -63,8 +66,10 @@
 					<p>
 						Хорошо, <span class='texthelper'>(называем ФИО клиента)</span> назначаем визит специалиста на<br>
 						<span class='texthelper'>(проговариваем дату и время)</span> по адресу <span class='texthelper'>(проговариваем адрес)</span> для<br>выездного ремонта <span class='texthelper'>(называем фирму и название техники)</span> все верно?<br>
-						В таком случае, ожидайте мастера, всего доброго, до свидания!<br>
+						В таком случае, ожидайте мастера в назначенное время, вам<br> заблаговременно позвонят по номеру <span class='texthelper'>(проговариваем номер телефона)</span>.<br>
+ 						Всего доброго, до свидания!
 					</p>
+					<button id='recall__closeappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 
 				<!-- Блок переноса времени мастера -->
@@ -101,7 +106,8 @@
 				</div>
 				<div class='blocks hide ' id='time-transfer__ourtime'>
 					<p>
-						Спасибо за ответ! Давайте сверим данные, скажите, пожалуйста,  полное ФИО и адрес проживания.
+						Спасибо за ответ! Давайте сверим данные, скажите, пожалуйста,<br>
+						полное ФИО, номер телефона и адрес, где находится устройство.
 					</p>
 					<button id='time-transfer__ourtime-continue' class='alone-button'>Далее</button>
 				</div>
@@ -127,6 +133,7 @@
 					<p>
 						В таком случае, ожидайте мастера, всего доброго, до свидания!
 					</p>
+					<button id='time-transfer__closeappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 
 				<!-- Первичное обращение -->
@@ -184,6 +191,26 @@
 						<button id='first-call__warrantynumber-no' class='right-button'>Нет - абонент настроен негативно</button>
 					</div>
 				</div>
+				<div class='blocks hide ' id='first-call__warrantynumberno'>
+					<p>
+						К сожалению мы не можем вас проконсультировать, так как компании<br>производитель важно самостоятельно выносить решения по каждому<br> отдельному случаю. Пожалуйста, позвоните по номеру<br> <span class='texthelper'>(называем номер телефона производителя)</span>, вас там проконсультируют и помогут.
+					</p>
+					<p>
+						Hansa__________________8 (800) 700 3661<br> 
+						Ariston_________________8 (423) 249 1301<br> 
+						Indesit_________________8 800 333 3887<br> 
+						ZANUSSI________________8 (423) 248 1217<br> 
+						Candy__________________8 800 707 0204<br> 
+						Beko ___________________8 800 200 2356<br>  
+						Samsung________________8 800 555 55 55<br> 
+						LG_____________________8 (800) 200 7676<br>  
+						Hotpoint-Ariston__________8 800 333 38 87<br> 
+						Electrolux_______________8 (800) 200 3589<br>  
+						Whirlpool_______________8 800 333 3887<br> 
+						Bosch___________________8 (800) 200 29 61<br>  
+					</p>
+					<button id='first-call__noDNScloseappeal' class='alone-button'>Закрыть обращение</button>
+				</div>
 
 				<!-- Гарантийны ремонт - Изделие приобретено в ДНС - нет авторизации/ проверка качества -->
 				<div class='blocks hide ' id='first-call__warrantynumbernoDNS'>
@@ -208,9 +235,9 @@
 				<div class='blocks hide ' id='first-call__warrantynumbernomoreyear'>
 					<p>
 						<span class='texthelper'>(Имя Отчество клиента)</span>, к сожалению, мы не можем вас проконсультировать,<br>
-						 так как прошло больше года с момента покупки. Позвоните, пожалуйста,<br>
-						 в компанию производитель по номеру <span class='texthelper'>(номер телефона фирмы производителя)</span>.<br>
-						 Там вас проконсультируют и предложат варианты развития событий. 
+						так как прошло больше года с момента покупки. Позвоните, пожалуйста,<br>
+						в компанию производитель по номеру <span class='texthelper'>(номер телефона фирмы производителя)</span>.<br>
+						Там вас проконсультируют и предложат варианты развития событий. 
 					</p>
 					<p>
 						Hansa__________________8 (800) 700 3661<br> 
@@ -226,6 +253,21 @@
 						Whirlpool_______________8 800 333 3887<br> 
 						Bosch___________________8 (800) 200 29 61<br>  
 					</p>
+					<button id='first-call__moreyearcloseappeal' class='alone-button'>Закрыть обращение</button>
+				</div>
+
+				<!-- первичное обращение - изделие куплено в ДНС есть авторизация перенаправляем вендору -->
+				<div class='blocks hide ' id='first-call__DNSauthorizationcallvendor'>
+					<p>
+						<span class='texthelper'>(ИО клиента)</span> для более комфортного и<br>
+						оперативного устранения поломки, вы можете самостоятельно обратиться<br>
+						в <span class='texthelper'>(называем фирму изготовитель)</span> для составления заявки по устранению<br>
+						неполадки. Подсказать вам номер, по которому можете связаться?
+					</p>
+					<div>
+						<button id='first-call__DNSauthorizationcallvendor-yes'>Да</button>
+						<button id='first-call__DNSauthorizationcallvendor-no' class='right-button'>Нет</button>
+					</div>
 				</div>
 
 				<!-- Гарантийны ремонт - Изделие приобретено не в ДНС/ Изделие приобретено в ДНС (нет авторизации)/ Проверка качества -->
@@ -244,6 +286,7 @@
 						Whirlpool_______________8 800 333 3887<br> 
 						Bosch___________________8 (800) 200 29 61<br>  
 					</p>
+					<button id='first-call__numberyescloseappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 
 				<!-- Гарантийный ремонт - поиск чека -->
@@ -269,6 +312,7 @@
 					<p>
 						К сожалению мне необходимы эти данные для формирования заказа. Перезвоните пожалуйста, когда данные будут найдены.
 					</p>
+					<button id='first-call__billhavenotdatacloseappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 				<div class='blocks hide ' id='warranty__billhavedata'>
 					<p>
@@ -291,7 +335,10 @@
 				</div>
 				<div class='blocks hide ' id='warranty__billinstruction'>
 					<p>
-						Инструкция по поиску товара в базе.
+						<img src="img/поискчека1.png" alt="поискчека1">
+						<img src="img/поискчека2.png" alt="поискчека2">
+						<img src="img/поискчека3.png" alt="поискчека3">
+						<img src="img/поискчека4.png" alt="поискчека4">
 					</p>
 					<div>
 						<button id='warranty__billinstruction-product'>Товар найден</button>
@@ -301,10 +348,11 @@
 				<div class='blocks hide ' id='warranty__billwrongdata'>
 					<p>
 						<span class='texthelper'>(Имя Отчество клиента)</span>, к сожалению, по дате и месту покупке устройства,<br>
-						 которые вы назвали не получилось найти. Для предоставления сервиса<br>
-						 и дополнительной информации по вашей покупке, вы можете приехать<br>
-						  в наш сервисный центр, по адресу <span class='texthelper'>(адрес ближайшего СЦ)</span>. 
+						которые вы назвали не получилось найти. Для предоставления сервиса<br>
+						и дополнительной информации по вашей покупке, вы можете приехать<br>
+						в наш сервисный центр, по адресу <span class='texthelper'>(адрес ближайшего СЦ)</span>. 
 					</p>
+					<button id='first-call__billwrongdatacloseappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 
 				<!-- Платный ремонт - полное название модели -->
@@ -647,6 +695,7 @@
 					<p>
 						<span class='texthelper'>(ИО)</span> спасибо за обращение в компанию ДНС, всего доброго, до свидания.
 					</p>
+					<button id='problemdirectory__resolvedgoodbyecloseappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 
 				<!-- Проблема не решена, требуется выезд мастера -->
@@ -682,6 +731,7 @@
 						Хорошо, <span class='texthelper'>(называем ФИО клиента)</span> назначаем визит специалиста на<br> <span class='texthelper'>(проговариваем дату и время)</span> по адресу <span class='texthelper'>(проговариваем адрес)</span> все верно?<br>
 						В таком случае, ожидайте мастера, он вам еще позвонит для уточнения<br> информации. Всего доброго, до свидания!
 					</p>
+					<button id='problemdirectory__notresolvedgoodbyecloseappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 
 				<!-- Не в ДНС - вызов мастера -->
@@ -704,14 +754,17 @@
 					<p>
 						Хорошо, спасибо за обращение мы с вами обязательно свяжемся, всего доброго, до свидания.
 					</p>
+					<button id='problemdirectory__notDNSnotresolvedgoodbyecloseappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 
 				<!-- АСЦ - вызов мастера -->
 				<div class='blocks hide ' id='problemdirectory__ASCnotresolved'>
 					<div class='withTextAside'>
 						<p>
-							<span class='texthelper'>(Имя Отчество клиента)</span> перед приездом мастера необходимо<br> отправить запрос в компанию-производитель.<br>
-							Для запроса необходима информация, которая<br> содержится на шильдике и информация с чека.<br> Подскажите, у вас есть возможность<br> отправить фотографии на электронную почту?
+							<span class='texthelper'>(ИО клиента)</span> хорошо, давайте сформируем заявку для отправки в компанию-производитель.<br>
+							Для запроса необходима информация, которая
+							содержится на шильдике.<br> Подскажите, у вас есть возможность
+							отправить фотографии на электронную почту/WhatsApp?
 						</p>
 						<p class='textInBorder'>
 							Шильдик находиться на коробке из под устройства<br> должно читаться изделие/модель, серийный номер.
@@ -724,19 +777,21 @@
 				</div>
 				<div class='blocks hide ' id='problemdirectory__ASCnotresolvedno'>
 					<p>
-						Я вас понял(ла) тогда необходимо будет продиктовать эту информацию.<br> На шильдике продиктуйте  название изделия, модели серийный номер,<br> скажите, пожалуйста, номер чека. 
+						Я вас понял(ла) тогда необходимо будет продиктовать эту информацию.<br>
+						На шильдике продиктуйте название изделия, модели серийный номер.
 					</p>
 					<button id='problemdirectory__ASCnotresolvedyes-continue' class='alone-button'>Далее</button>
 				</div>
 				<div class='blocks hide ' id='problemdirectory__ASCnotresolvedyes'>
 					<p>
-						Хорошо, фотографии необходимо будет отправить по адресу <span class='texthelper'>(адрес<br> электронной почты)</span>. после получения от вас письма, заявка будет<br> сформирована.
+						Хорошо, фотографии необходимо будет отправить по адресу/телефону <span class='texthelper'>(адрес
+						электронной почты/номер whatsApp)</span>.<br> после получения от вас письма, заявка будет сформирована.
 					</p>
 					<button id='problemdirectory__ASCnotresolvedno-continue' class='alone-button'>Далее</button>
 				</div>
 				<div class='blocks hide ' id='problemdirectory__ASCnotresolvedquest'>
 					<p>
-						Хорошо, как только придет ответ, мы с вами свяжемся для уточнение даты<br> и времени визита специалиста. Скажите, возможно остались вопросы? 
+						Хорошо, как только придет ответ, мы с вами свяжемся для уточнение даты<br> и времени визита специалиста. Скажите, возможно остались вопросы?<br> Завести заявку без шильдика возможно.
 					<div>
 						<button id='problemdirectory__ASCnotresolvedquest-yes'>Да</button>
 						<button id='problemdirectory__ASCnotresolvedquest-no' class='right-button'>Нет</button>
@@ -750,8 +805,9 @@
 				</div>
 				<div class='blocks hide' id='problemdirectory__ASCnotresolvedgoodbye'>
 					<p>
-						Хорошо,как только придет ответ, мы с вами свяжемся для уточнения даты<br> и времени визита специалиста. Скажите, возможно остались вопросы?<br> спасибо за обращение мы с вами обязательно свяжемся, всего доброго,<br> до свидания.
+						Спасибо за обращение мы с вами обязательно свяжемся,<br> всего доброго, до свидания.
 					</p>
+					<button id='problemdirectory__ASCnotresolvedgoodbyecloseappeal' class='alone-button'>Закрыть обращение</button>
 				</div>
 			</section>
 
