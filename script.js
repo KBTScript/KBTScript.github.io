@@ -19,6 +19,7 @@ let timeTransferQuestion = document.querySelector('#time-transfer__question');
 let timeTransferGoodbye = document.querySelector('#time-transfer__goodbye');
 
 // первичное обращение
+let firstCallTransfer = document.querySelector('#first-call__transfer');
 let firstCallChecking = document.querySelector('#first-call__checking');
 let firstCallCheckingBrand = document.querySelector('#first-call__checkingbrand');
 
@@ -194,7 +195,7 @@ function catchClick(event) {
 			isSite = true;
 			break;
 		case 'greeting__appeal-calltransfer':
-			showNextBlock(firstCallChecking);
+			showNextBlock(firstCallTransfer);
 			isCallTransfer = true;
 			break;
 		case 'general-checking__greeting-no':
@@ -262,6 +263,9 @@ function catchClick(event) {
 			break;		
 
 		// первичное обращение - общее проверка бренда
+		case 'first-call__calltransfer-continue':
+			showNextBlock(firstCallChecking);
+			break;
 		case 'first-call__checking-warranty':
 			showNextBlock(firstCallCheckingBrand);
 			isWarranty = true;
